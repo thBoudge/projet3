@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B761DA08203F293E0019DB29 /* Combattant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B761DA07203F293E0019DB29 /* Combattant.swift */; };
 		B761DA0A203F5B1B0019DB29 /* Mage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B761DA09203F5B1B0019DB29 /* Mage.swift */; };
+		B761DA0C203F5BDD0019DB29 /* Colosse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B761DA0B203F5BDD0019DB29 /* Colosse.swift */; };
 		B796E5FF203DED7A0063E26F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796E5FE203DED7A0063E26F /* main.swift */; };
 		B796E606203DEED80063E26F /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796E605203DEED80063E26F /* Game.swift */; };
 		B796E608203DF17A0063E26F /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796E607203DF17A0063E26F /* Team.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		B761DA07203F293E0019DB29 /* Combattant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combattant.swift; sourceTree = "<group>"; };
 		B761DA09203F5B1B0019DB29 /* Mage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mage.swift; sourceTree = "<group>"; };
+		B761DA0B203F5BDD0019DB29 /* Colosse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colosse.swift; sourceTree = "<group>"; };
 		B796E5FB203DED7A0063E26F /* Warriors */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Warriors; sourceTree = BUILT_PRODUCTS_DIR; };
 		B796E5FE203DED7A0063E26F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		B796E605203DEED80063E26F /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				B796E607203DF17A0063E26F /* Team.swift */,
 				B761DA07203F293E0019DB29 /* Combattant.swift */,
 				B761DA09203F5B1B0019DB29 /* Mage.swift */,
+				B761DA0B203F5BDD0019DB29 /* Colosse.swift */,
 				B796E609203DF1C40063E26F /* Warrior.swift */,
 				B796E60B203DF2020063E26F /* Weapon.swift */,
 			);
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B761DA0C203F5BDD0019DB29 /* Colosse.swift in Sources */,
 				B761DA08203F293E0019DB29 /* Combattant.swift in Sources */,
 				B796E60C203DF2020063E26F /* Weapon.swift in Sources */,
 				B796E608203DF17A0063E26F /* Team.swift in Sources */,
