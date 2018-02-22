@@ -12,3 +12,9 @@ var marcel = Team(teamName: "Marcel", warrior1: Combattant(name: "robert"), warr
 
 
 marcel.ShowTeam()
+
+var ben = Team(teamName: "Sophia", warrior1: Colosse(name: "Brigitte"), warrior2: Mage(name: "Perrin"), warrior3: Nain(name: "Rick"))
+
+ben.ShowTeam()
+
+marcel.warriorTeam[0].strike(weapon: marcel.warriorTeam[0].warriorWeapon, warrior: ben.warriorTeam[1])
