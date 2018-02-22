@@ -12,11 +12,13 @@ class Weapon {
     
     var nameWeapon:String
     var powerWeapon:Int
+    var type: String
     
-    init(nameWeapon:String, powerWeapon:Int){
+    init(nameWeapon:String, powerWeapon:Int, type: String){
         
         self.nameWeapon=nameWeapon
         self.powerWeapon=powerWeapon
+        self.type = type
         
     }
     

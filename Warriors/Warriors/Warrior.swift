@@ -24,7 +24,7 @@ class Warrior {
     func strike (weapon:Weapon, warrior: Warrior)->Void {
         
         warrior.power -= weapon.powerWeapon
-        print("\(warrior.name)have been attacked with an \(weapon.powerWeapon)")
+        print("\(warrior.name)have been attacked with an \(weapon.type)")
         print("\(warrior.name) is now \(warrior.power)")
         
     }
