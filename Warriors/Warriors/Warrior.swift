@@ -13,7 +13,11 @@ class Warrior {
     var name:String
     var power:Int
     
-    
+    init(name:String,power:Int){
+        self.name=name
+        self.power=power
+        
+    }
     
     
     
