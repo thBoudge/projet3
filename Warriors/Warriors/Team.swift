@@ -22,6 +22,15 @@ class Team {
         
     }
     
+    func ShowTeam() -> Void{
+        
+        print("\(self.teamName)")
+        for i in 0...2{
+            print( "\n \(self.warriorTeam[i].name)   \(self.warriorTeam[i].power) \(self.warriorTeam[i].warriorWeapon.nameWeapon) \(self.warriorTeam[i].warriorWeapon.powerWeapon)\n")
+        }
+        
+
+    }
     
 }
 

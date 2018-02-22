@@ -8,5 +8,7 @@
 
 import Foundation
 
+var marcel = Team(teamName: "Marcel", warrior1: Combattant(name: "robert"), warrior2: Mage(name: "Leila"), warrior3: Nain(name: "hector"))
 
 
+marcel.ShowTeam()
