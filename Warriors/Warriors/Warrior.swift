@@ -12,10 +12,12 @@ class Warrior {
     
     var name:String
     var power:Int
+    var warriorWeapon: Weapon
     
-    init(name:String,power:Int){
-        self.name=name
-        self.power=power
+    init(name:String,power:Int,weapon: Weapon){
+        self.name = name
+        self.power = power
+        self.warriorWeapon = weapon
         
     }
     
