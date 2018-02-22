@@ -15,4 +15,24 @@ class Game {
     
     init(){}
     
+    
+    func Play(){
+        
+        
+        
+    }
+    
+    func teamCreate(){
+        var teamN: String
+        print("Bienvenue, Nous allons commencer la création de votre équipe \n\n")
+        
+        print("Nom de votre équipe :  ")
+        teamN = readLine()!
+        
+        
+        
+        print("votre nom equipe est \(teamN)")
+        
+    }
+    
 }

@@ -22,4 +22,5 @@ marcel.warriorTeam[0].strike(weapon: marcel.warriorTeam[0].warriorWeapon, warrio
 
 ben.warriorTeam[1].treatWarrior(weapon: ben.warriorTeam[1].warriorWeapon, warrior: ben.warriorTeam[1])
 
-
+var ab = Game()
+ab.teamCreate()
