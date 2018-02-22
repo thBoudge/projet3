@@ -15,7 +15,7 @@ class Colosse: Warrior{
     init(name: String) {
         
         self.typeAttac = "strike"
-        super.init(name: name,power: 150)
+        super.init(name: name,power: 150,weapon: Hache())
         
     }
     

@@ -15,7 +15,7 @@ class Combattant: Warrior{
     init(name: String) {
         
         self.typeAttac = "strike"
-        super.init(name: name,power: 100)
+        super.init(name: name,power: 100,weapon: Epee())
         
     }
     

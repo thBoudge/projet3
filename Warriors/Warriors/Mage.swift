@@ -15,7 +15,7 @@ class Mage: Warrior{
     init(name: String) {
         
         self.typeAttac = "treat"
-        super.init(name: name,power: 80)
+        super.init(name: name,power: 80, weapon: Soins())
         
     }
     
