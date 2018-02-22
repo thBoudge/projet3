@@ -13,6 +13,18 @@ class Weapon {
     var nameWeapon:String
     var powerWeapon:Int
     
+    init(nameWeapon:String, powerWeapon:Int){
+        
+        self.nameWeapon=nameWeapon
+        self.powerWeapon=powerWeapon
+        
+    }
+    
+    
+    
+    
+    
+    
 }
 
 
