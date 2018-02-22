@@ -12,7 +12,10 @@ class Team {
     
     var teamName: String
     
-    
+    init(teamName:String){
+        
+        self.teamName=teamName
+    }
     
     
 }

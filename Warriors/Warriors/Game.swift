@@ -13,6 +13,6 @@ class Game {
     
     var attacNumber: Int = 0
     
-    
+    init(){}
     
 }
