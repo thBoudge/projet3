@@ -18,3 +18,8 @@ var ben = Team(teamName: "Sophia", warrior1: Colosse(name: "Brigitte"), warrior2
 ben.ShowTeam()
 
 marcel.warriorTeam[0].strike(weapon: marcel.warriorTeam[0].warriorWeapon, warrior: ben.warriorTeam[1])
+
+
+ben.warriorTeam[1].treatWarrior(weapon: ben.warriorTeam[1].warriorWeapon, warrior: ben.warriorTeam[1])
+
+

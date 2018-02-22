@@ -29,6 +29,16 @@ class Warrior {
         
     }
     
+    func treatWarrior (weapon:Weapon,warrior: Warrior)->Void {
+        if (weapon.type == "Soins"){
+        warrior.power += self.warriorWeapon.powerWeapon
+        print("\(warrior.name)have been treat with an \(self.warriorWeapon.type)")
+        print("\(warrior.name) is now \(warrior.power)")
+        }else{
+            print("Seule une mage peut soigner un combattant")
+        }
+    }
+    
     
 }
 
