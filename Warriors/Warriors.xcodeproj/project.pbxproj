@@ -15,11 +15,11 @@
 		B761DA12203F5E250019DB29 /* Hache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B761DA11203F5E250019DB29 /* Hache.swift */; };
 		B761DA14203F5E980019DB29 /* Soins.swift in Sources */ = {isa = PBXBuildFile; fileRef = B761DA13203F5E980019DB29 /* Soins.swift */; };
 		B761DA16203F5ED70019DB29 /* Marteau.swift in Sources */ = {isa = PBXBuildFile; fileRef = B761DA15203F5ED70019DB29 /* Marteau.swift */; };
+		B761DA18203F79060019DB29 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B761DA17203F79060019DB29 /* Weapon.swift */; };
 		B796E5FF203DED7A0063E26F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796E5FE203DED7A0063E26F /* main.swift */; };
 		B796E606203DEED80063E26F /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796E605203DEED80063E26F /* Game.swift */; };
 		B796E608203DF17A0063E26F /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796E607203DF17A0063E26F /* Team.swift */; };
 		B796E60A203DF1C40063E26F /* Warrior.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796E609203DF1C40063E26F /* Warrior.swift */; };
-		B796E60C203DF2020063E26F /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796E60B203DF2020063E26F /* Weapon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,12 +43,12 @@
 		B761DA11203F5E250019DB29 /* Hache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hache.swift; sourceTree = "<group>"; };
 		B761DA13203F5E980019DB29 /* Soins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soins.swift; sourceTree = "<group>"; };
 		B761DA15203F5ED70019DB29 /* Marteau.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marteau.swift; sourceTree = "<group>"; };
+		B761DA17203F79060019DB29 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		B796E5FB203DED7A0063E26F /* Warriors */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Warriors; sourceTree = BUILT_PRODUCTS_DIR; };
 		B796E5FE203DED7A0063E26F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		B796E605203DEED80063E26F /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		B796E607203DF17A0063E26F /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		B796E609203DF1C40063E26F /* Warrior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warrior.swift; sourceTree = "<group>"; };
-		B796E60B203DF2020063E26F /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,11 +89,11 @@
 				B761DA0B203F5BDD0019DB29 /* Colosse.swift */,
 				B761DA0D203F5C6E0019DB29 /* Nain.swift */,
 				B796E609203DF1C40063E26F /* Warrior.swift */,
-				B796E60B203DF2020063E26F /* Weapon.swift */,
 				B761DA0F203F5D700019DB29 /* Epee.swift */,
 				B761DA11203F5E250019DB29 /* Hache.swift */,
 				B761DA13203F5E980019DB29 /* Soins.swift */,
 				B761DA15203F5ED70019DB29 /* Marteau.swift */,
+				B761DA17203F79060019DB29 /* Weapon.swift */,
 			);
 			path = Warriors;
 			sourceTree = "<group>";
@@ -159,8 +159,8 @@
 				B761DA0C203F5BDD0019DB29 /* Colosse.swift in Sources */,
 				B761DA08203F293E0019DB29 /* Combattant.swift in Sources */,
 				B761DA10203F5D700019DB29 /* Epee.swift in Sources */,
-				B796E60C203DF2020063E26F /* Weapon.swift in Sources */,
 				B761DA16203F5ED70019DB29 /* Marteau.swift in Sources */,
+				B761DA18203F79060019DB29 /* Weapon.swift in Sources */,
 				B796E608203DF17A0063E26F /* Team.swift in Sources */,
 				B796E5FF203DED7A0063E26F /* main.swift in Sources */,
 				B761DA14203F5E980019DB29 /* Soins.swift in Sources */,
