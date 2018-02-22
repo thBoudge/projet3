@@ -11,11 +11,15 @@ import Foundation
 class Team {
     
     var teamName: String
+    var warriorTeam: Array<Warrior> = []
     
-    
-    init(teamName:String){
+    init(teamName:String,warrior1: Warrior,warrior2:Warrior,warrior3:Warrior){
         
         self.teamName=teamName
+        self.warriorTeam.append(warrior1)
+        self.warriorTeam.append(warrior2)
+        self.warriorTeam.append(warrior3)
+        
     }
     
     
