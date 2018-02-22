@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+class Warrior {
+    
+    var name:String
+    var power:Int
+    
+    
+    
+    
+    
+}
+
+
