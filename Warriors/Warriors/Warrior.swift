@@ -24,15 +24,15 @@ class Warrior {
     func strike (weapon:Weapon, warrior: Warrior)->Void {
         
         warrior.power -= weapon.powerWeapon
-        print("\(warrior.name)have been attacked with an \(weapon.type)")
+        print("\(warrior.name)have been attacked with an \(weapon.nameWeapon)")
         print("\(warrior.name) is now \(warrior.power)")
         
     }
     
     func treatWarrior (weapon:Weapon,warrior: Warrior)->Void {
-        if (weapon.type == "Soins"){
+        if (weapon.nameWeapon == "Soins"){
         warrior.power += self.warriorWeapon.powerWeapon
-        print("\(warrior.name)have been treat with an \(self.warriorWeapon.type)")
+        print("\(warrior.name)have been treat with an \(self.warriorWeapon.nameWeapon)")
         print("\(warrior.name) is now \(warrior.power)")
         }else{
             print("Seule une mage peut soigner un combattant")
