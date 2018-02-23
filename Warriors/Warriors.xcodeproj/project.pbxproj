@@ -62,6 +62,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B7736BCF20406DCF00704E1C /* Weapon */ = {
+			isa = PBXGroup;
+			children = (
+				B761DA17203F79060019DB29 /* Weapon.swift */,
+				B761DA0F203F5D700019DB29 /* Epee.swift */,
+				B761DA11203F5E250019DB29 /* Hache.swift */,
+				B761DA13203F5E980019DB29 /* Soins.swift */,
+				B761DA15203F5ED70019DB29 /* Marteau.swift */,
+			);
+			path = Weapon;
+			sourceTree = "<group>";
+		};
+		B7736BD02040732B00704E1C /* Warrior */ = {
+			isa = PBXGroup;
+			children = (
+				B796E609203DF1C40063E26F /* Warrior.swift */,
+				B761DA07203F293E0019DB29 /* Combattant.swift */,
+				B761DA09203F5B1B0019DB29 /* Mage.swift */,
+				B761DA0B203F5BDD0019DB29 /* Colosse.swift */,
+				B761DA0D203F5C6E0019DB29 /* Nain.swift */,
+			);
+			path = Warrior;
+			sourceTree = "<group>";
+		};
 		B796E5F2203DED790063E26F = {
 			isa = PBXGroup;
 			children = (
@@ -84,16 +108,8 @@
 				B796E5FE203DED7A0063E26F /* main.swift */,
 				B796E605203DEED80063E26F /* Game.swift */,
 				B796E607203DF17A0063E26F /* Team.swift */,
-				B761DA07203F293E0019DB29 /* Combattant.swift */,
-				B761DA09203F5B1B0019DB29 /* Mage.swift */,
-				B761DA0B203F5BDD0019DB29 /* Colosse.swift */,
-				B761DA0D203F5C6E0019DB29 /* Nain.swift */,
-				B796E609203DF1C40063E26F /* Warrior.swift */,
-				B761DA0F203F5D700019DB29 /* Epee.swift */,
-				B761DA11203F5E250019DB29 /* Hache.swift */,
-				B761DA13203F5E980019DB29 /* Soins.swift */,
-				B761DA15203F5ED70019DB29 /* Marteau.swift */,
-				B761DA17203F79060019DB29 /* Weapon.swift */,
+				B7736BD02040732B00704E1C /* Warrior */,
+				B7736BCF20406DCF00704E1C /* Weapon */,
 			);
 			path = Warriors;
 			sourceTree = "<group>";

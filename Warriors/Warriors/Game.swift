@@ -12,27 +12,44 @@ import Foundation
 class Game {
     
     var attacNumber: Int = 0
+    var teams = [Team]()
     
-    init(){}
-    
-    
-    func Play(){
+    func play(){
+        
+        //Créer team1
+        createTeam()
+        //Créer team2
+        createTeam()
+        
+        //Affichage info sur team
+        teams[0].showTeam()
+        teams[1].showTeam()
         
         
         
     }
     
-    func teamCreate(){
-        var teamN: String
-        print("Bienvenue, Nous allons commencer la création de votre équipe \n\n")
-        
-        print("Nom de votre équipe :  ")
-        teamN = readLine()!
-        
-        
-        
-        print("votre nom equipe est \(teamN)")
+    func createTeam(){
+    
+    var teamN: String
+    print("Bienvenue, Nous allons commencer la création de votre équipe \n\n")
+    
+    print("Nom de votre équipe :  ")
+    // if verifier l optionnel si pas Nil cours deballage
+    
+    teamN = readLine()!
+    
+    let newTeam = Team(teamName: teamN)
+    
+    newTeam.createWarrior()
+    newTeam.createWarrior()
+    newTeam.createWarrior()
+    teams.append(newTeam)
+    
+    
+    }
+    
         
     }
     
-}
+
