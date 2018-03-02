@@ -86,161 +86,14 @@ class Game {
        
         while team1>0 && team2>0 {
             
-        // Team1 play when Bollean of attacNumber =0
-        if (attacNumber % 2 == 0){
-            var team1Warrior: String?
-            var team2Warrior: String?
-            var teamWarriorTreat: String?
-            var striker: Int
-            var defender: Int
-            
-            
-            
-           print("\(teams[0].teamName) choisi ton guerrier")
-            
-            for i in 0 ..< teams[0].warriorTeam.count {
-                //if to show only warrior over 0 level
-                if  teams[0].warriorTeam[i].power > 0{
-                    print("\(i)- \(teams[0].warriorTeam[i].name) : weapon \(teams[0].warriorTeam[i].warriorWeapon.nameWeapon)  \(teams[0].warriorTeam[i].warriorWeapon.powerWeapon)")
+            // Team1 play when Bollean of attacNumber =0
+            if (attacNumber % 2 == 0){
+                attacTreat(team1: 0, team2: 1)
                 }
-            }
-            
-            print("ton choix: ")
-            
-            team1Warrior = readLine()
-            
-            
-            if let t1W = team1Warrior {
-                striker = Int(t1W)!
-                
-                
-                if teams[0].warriorTeam[striker].warriorWeapon.nameWeapon == "Soins" {
-                    
-                        print("Choisi le Warrior a soigner\n")
-                        for i in 0 ..< teams[0].warriorTeam.count{
-                           //if to show only warrior over 0 level
-                            if  teams[0].warriorTeam[i].power > 0{
-                                print("\(i)- \(teams[0].warriorTeam[i].name) : weapon \(teams[0].warriorTeam[i].warriorWeapon.nameWeapon)  \(teams[0].warriorTeam[i].warriorWeapon.powerWeapon)\n")
-                            }
-                            
-                        }
-                        print("ton choix: ")
-                        teamWarriorTreat = readLine()
-                        if let treatnumber = teamWarriorTreat{
-                            defender = Int(treatnumber)!
-                        
-                            teams[0].warriorTeam[striker].treatWarrior(warrior: teams[1].warriorTeam[defender])
-                        }
-                }else{
-                
-                        print("Choisi ta cible\n")
-                        for i in 0 ..< teams[1].warriorTeam.count {
-                            //if to show only warrior over 0 level
-                            if  teams[1].warriorTeam[i].power > 0{
-                                print("\(i)- \(teams[1].warriorTeam[i].name) : weapon \(teams[1].warriorTeam[i].warriorWeapon.nameWeapon)  \(teams[1].warriorTeam[i].warriorWeapon.powerWeapon)\n")
-                            }
-                            
-                        }
-                        print("ton choix: ")
-                        team2Warrior = readLine()
-                    
-                        if let t2W = team2Warrior {
-                            defender = Int(t2W)!
-                            
-                            
-                            teams[0].warriorTeam[striker].strike(warrior: teams[1].warriorTeam[defender])
-                            
-                        }
-            }
-            
-            attacNumber += 1
-            
-            powerlevel()
-            
-            // show result
-            teams[0].showTeam()
-            teams[1].showTeam()
-            
-        }
-    }
 
-            
-            
             // Team2 play when Bollean of attacNumber !=0
             if (attacNumber % 2 != 0){
-                var team1Warrior: String?
-                var team2Warrior: String?
-                var teamWarriorTreat: String?
-                var striker: Int
-                var defender: Int
-                
-                print("\(teams[1].teamName) choisi ton guerrier")
-                
-                for i in 0 ..< teams[1].warriorTeam.count {
-                   //if to show only warrior over 0 level
-                    if  teams[1].warriorTeam[i].power > 0{
-                        
-                        print("\(i)- \(teams[1].warriorTeam[i].name) : weapon \(teams[1].warriorTeam[i].warriorWeapon.nameWeapon)  \(teams[1].warriorTeam[i].warriorWeapon.powerWeapon)\n")
-                    }
-                    
-                }
-                
-                print("ton choix: ")
-                
-                team1Warrior = readLine()
-                
-                if let t1W = team1Warrior {
-                    striker = Int(t1W)!
-                    
-                    
-                    if teams[1].warriorTeam[striker].warriorWeapon.nameWeapon == "Soins" {
-                        
-                        print("Choisi le Warrior a soigner\n")
-                        for i in 0 ..< teams[1].warriorTeam.count {
-                            //if to show only warrior over 0 level
-                            if  teams[1].warriorTeam[i].power > 0{
-                                print("\(i)- \(teams[1].warriorTeam[i].name) : weapon \(teams[1].warriorTeam[i].warriorWeapon.nameWeapon)  \(teams[1].warriorTeam[i].warriorWeapon.powerWeapon)\n")
-                            }
-                            
-                        }
-                        print("ton choix: ")
-                        teamWarriorTreat = readLine()
-                        if let treatnumb = teamWarriorTreat{
-                            defender = Int(treatnumb)!
-                            
-                            teams[1].warriorTeam[striker].treatWarrior(warrior: teams[1].warriorTeam[defender])
-                        }
-                    }else{
-                        
-                        print("Choisi ta cible\n")
-                        for i in 0 ..< teams[1].warriorTeam.count {
-                           //if to show only warrior over 0 level
-                            if  teams[1].warriorTeam[i].power > 0{
-                                print("\(i)- \(teams[0].warriorTeam[i].name) : weapon \(teams[0].warriorTeam[i].warriorWeapon.nameWeapon)  \(teams[0].warriorTeam[i].warriorWeapon.powerWeapon)\n")
-                            }
-                            
-                        }
-                        print("ton choix: ")
-                        team2Warrior = readLine()
-                        
-                        if let t2W = team2Warrior {
-                            defender = Int(t2W)!
-                            
-                            
-                            teams[1].warriorTeam[striker].strike(warrior: teams[0].warriorTeam[defender])
-                            
-                        }
-                    }
-                    
-                    attacNumber += 1
-                    
-                    powerlevel()
-                    
-                    // show result
-                    teams[0].showTeam()
-                    teams[1].showTeam()
-                    
-                }
+                attacTreat(team1: 1, team2: 0)
             }
         }
             powerlevel()
@@ -254,10 +107,10 @@ class Game {
                 
             }
         
-}
+    }
     
         
-        
+     // Method to calculate total power of Team1 & Team 2
     func powerlevel(){
         //team 1 Warriors
         
@@ -289,6 +142,85 @@ class Game {
         team2 = team2Warrior1 +  team2Warrior2 + team2Warrior3
         
     }
+    
+    //Methods to select warrior of our team and Warrior to attac or treat
+    func attacTreat (team1 : Int, team2 : Int){
+        
+        var team1Warrior: String?
+        var team2Warrior: String?
+        var teamWarriorTreat: String?
+        var striker: Int
+        var defender: Int
+        
+        
+        
+        print("\(teams[team1].teamName) choisi ton guerrier")
+        
+        for i in 0 ..< teams[team1].warriorTeam.count {
+                //if to show only warrior over 0 level
+                if  teams[team1].warriorTeam[i].power > 0{
+                    print("\(i)- \(teams[team1].warriorTeam[i].name) : weapon \(teams[team1].warriorTeam[i].warriorWeapon.nameWeapon)  \(teams[team1].warriorTeam[i].warriorWeapon.powerWeapon)")
+                }
+        }
+        
+        print("ton choix: ")
+        
+        team1Warrior = readLine()
+        
+        
+        if let t1W = team1Warrior {
+            striker = Int(t1W)!
+            
+            if teams[team1].warriorTeam[striker].warriorWeapon.nameWeapon == "Soins" {
+                
+                print("Choisi le Warrior a soigner\n")
+                for i in 0 ..< teams[team1].warriorTeam.count{
+                    //if to show only warrior over 0 level
+                    if  teams[team1].warriorTeam[i].power > 0{
+                        print("\(i)- \(teams[team1].warriorTeam[i].name) : weapon \(teams[team1].warriorTeam[i].warriorWeapon.nameWeapon)  \(teams[team1].warriorTeam[i].warriorWeapon.powerWeapon)\n")
+                    }
+                    
+                }
+                print("ton choix: ")
+                teamWarriorTreat = readLine()
+                if let treatnumber = teamWarriorTreat{
+                    defender = Int(treatnumber)!
+                    
+                    teams[team1].warriorTeam[striker].treatWarrior(warrior: teams[team1].warriorTeam[defender])
+                }
+            }else{
+                
+                print("Choisi ta cible\n")
+                for i in 0 ..< teams[1].warriorTeam.count {
+                    //if to show only warrior over 0 level
+                    if  teams[1].warriorTeam[i].power > 0{
+                        print("\(i)- \(teams[team2].warriorTeam[i].name) : weapon \(teams[team2].warriorTeam[i].warriorWeapon.nameWeapon)  \(teams[team2].warriorTeam[i].warriorWeapon.powerWeapon)\n")
+                    }
+                    
+                }
+                print("ton choix: ")
+                team2Warrior = readLine()
+                
+                if let t2W = team2Warrior {
+                    defender = Int(t2W)!
+
+                    teams[team1].warriorTeam[striker].strike(warrior: teams[team2].warriorTeam[defender])
+                    
+                }
+            }
+            
+            attacNumber += 1
+            
+            powerlevel()
+            
+            // show result
+            teams[0].showTeam()
+            teams[1].showTeam()
+            
+            }
+        
+        
+        }
     
         
     }
