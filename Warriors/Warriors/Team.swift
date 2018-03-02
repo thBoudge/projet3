@@ -102,21 +102,49 @@ class Team {
         
         var name:String?
         var nWarrior: String = ""
+        var nameIsDifferent: Bool
         
         print("Nom du Warrior :   ")
         
         // if verifier l optionnel si pas Nil cours deballage + 1234
         
         name = readLine()!
+        
         if let nameW = name {
             
+            //If name does not have letter
             if nameW==""{
+                
                 print("Merci de saisir le Nom du Warrior \n\n")
                 var nameWarrior: String
                 nameWarrior = warriorname()
                 nWarrior = nameWarrior
+                
             }else{
-                nWarrior = nameW
+                
+            //Loops to check if name is alreay in warriorTeam
+                nameIsDifferent = true
+                if warriorTeam.count != 0 {
+                       for i in 0 ..< warriorTeam.count{
+                        
+                            if nameW == warriorTeam[i].name{
+                                    nameIsDifferent = false
+                                }
+                        }
+                }
+            //If name is already use please try a new one
+                if nameIsDifferent == false{
+                    
+                        print("Ce nom existe déjà Merci de saisir un nouveau Nom de Warrior \n\n")
+                        var nameWarrior: String
+                        nameWarrior = warriorname()
+                        nWarrior = nameWarrior
+                    
+                }else{
+                    
+                        nWarrior = nameW
+                    
+                }
             }
             
         }

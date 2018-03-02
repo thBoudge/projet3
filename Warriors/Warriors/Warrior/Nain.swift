@@ -15,7 +15,7 @@ class Nain: Warrior{
     init(name: String) {
         
         self.typeAttac = "strike"
-        super.init(name: name,power: 120,weapon: Marteau())
+        super.init(name: name,power: 80,weapon: Marteau())
         
     }
     

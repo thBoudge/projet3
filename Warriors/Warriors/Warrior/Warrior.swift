@@ -29,7 +29,7 @@ class Warrior {
         
     }
     
-    
+    func treatWarrior(warrior: Warrior) ->Void {}
     
     
 }

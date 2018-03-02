@@ -13,7 +13,7 @@ class Marteau: Weapon{
     
     init() {
         
-        super.init(nameWeapon: "Marteau", powerWeapon: 30)
+        super.init(nameWeapon: "Marteau", powerWeapon: 50)
         
     }
     

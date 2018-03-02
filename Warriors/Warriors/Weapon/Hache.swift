@@ -13,7 +13,7 @@ class Hache: Weapon{
     
     init() {
         
-        super.init(nameWeapon: "Hache", powerWeapon: 20)
+        super.init(nameWeapon: "Hache", powerWeapon: 40)
         
     }
     

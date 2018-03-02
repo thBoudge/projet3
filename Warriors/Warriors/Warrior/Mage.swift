@@ -15,7 +15,7 @@ class Mage: Warrior{
     init(name: String) {
         
         self.typeAttac = "treat"
-        super.init(name: name,power: 80, weapon: Soins())
+        super.init(name: name,power: 70, weapon: Soins())
         
     }
     
@@ -23,7 +23,7 @@ class Mage: Warrior{
         print("I cannot attack")
     }
     
-    func treatWarrior(warrior: Warrior) ->Void {
+    override func treatWarrior(warrior: Warrior) ->Void {
         
        
             warrior.power += warriorWeapon.powerWeapon
