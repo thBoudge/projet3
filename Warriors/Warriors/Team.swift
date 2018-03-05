@@ -15,11 +15,7 @@ class Team {
     var warriorTeam = [Warrior]()
     
     init(teamName:String){
-        
         self.teamName=teamName
-       
-
-        
     }
     
     /////////////////////////////////////////Methods to get player reponse and return an int ////////////////////////////
@@ -81,7 +77,7 @@ class Team {
         case 4:
             warriorTeam.append(Dwarf(name: nameWarrior))
         default:
-            print("saisir un chiffre entre 1 et 4")
+            print("error")
         }
         
     

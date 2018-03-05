@@ -132,29 +132,25 @@ class Game {
     
     func fight() {
        
-        while team1>0 && team2>0 {
+        repeat{
             
             // Team1 play when Bollean of attacNumber =0
             if (attacNumber % 2 == 0){
                 attacTreat(team1: 0, team2: 1)
-                }
-
+            }
+            
             // Team2 play when Bollean of attacNumber !=0
             if (attacNumber % 2 != 0){
                 attacTreat(team1: 1, team2: 0)
             }
             
+        }while teams[0].warriorTeam[0].power + teams[0].warriorTeam[1].power + teams[0].warriorTeam[2].power > 0 && teams[1].warriorTeam[0].power + teams[1].warriorTeam[1].power + teams[1].warriorTeam[2].power > 0
+        
             
             
         }
         
-       /* if victory == true {
-            
-            print()
-        }*/
-        
-        
-    }
+   
     
         
      // Method to calculate total power of Team1 & Team 2
