@@ -22,6 +22,21 @@ class Team {
         
     }
     
+    /////////////////////////////////////////Methods to get player reponse and return an int ////////////////////////////
+    
+    func inputInt() -> Int {
+        guard let data = readLine() else { return 0 }
+        guard let dataToInt = Int(data) else { return 0 }
+        return dataToInt
+    }
+    
+    func inputString() -> String {
+        guard let data = readLine() else { return "0" }
+        return data
+    }
+    
+    //////////////////////////////////
+    
     //Method to show each team warrior and weapon
     func showTeam() -> Void{
         
@@ -33,23 +48,38 @@ class Team {
     
     // method to create one new warrior
     func createWarrior(number : Int){
-        var warrior: String
+        
+        var warrior: Int
         
         var nameWarrior: String
         
-        warrior = warriorSelected(number: number)
+        repeat{
+        print("")
+        print("===============================")
+        print("Please Choice your warrior \(number + 1)")
+        print("1 - Figher power: Weapon: strike:")
+        print("2 - Wizard power: Weapon: strike:")
+        print("3 - Colossus power: Weapon: strike:")
+        print("4 - Dwarf power: Weapon: strike:")
+        print("===============================")
+        print("Please enter your choice :")
+            
+        warrior = inputInt()
+        
+    }while warrior != 1 && warrior != 2 && warrior != 3 && warrior != 4
         
         nameWarrior = warriorname()
         
+        
         switch warrior {
-        case "1":
+        case 1:
             warriorTeam.append(Fighter(name: nameWarrior))
-        case "2":
-            warriorTeam.append(Colossus(name: nameWarrior))
-        case "3":
-            warriorTeam.append(Dwarf(name: nameWarrior))
-        case "4":
+        case 2:
             warriorTeam.append(Wizard(name: nameWarrior))
+        case 3:
+            warriorTeam.append(Colossus(name: nameWarrior))
+        case 4:
+            warriorTeam.append(Dwarf(name: nameWarrior))
         default:
             print("saisir un chiffre entre 1 et 4")
         }
@@ -57,100 +87,33 @@ class Team {
     
     }
     
-    // method to add name to one warrior
-    func warriorSelected(number : Int) -> String {
-        
-        var choice: String?
-        var selectWarrior: String = ""
-        
-        print("Choix du combatant \(number) : \n"
-            + " 1- Combattant Vie: , Arme: Épée, Valeur des coups: 10\n"
-            + " 2- Colosse Vie: , Arme: Épée, Valeur des coups: 10\n"
-            + " 3- Nain    Vie: , Arme: Épée, Valeur des coups: 10\n"
-            + " 4- Mage    Vie: , Arme: Épée, Valeur des coups: 10\n"
-        )
-        
-        print("faite votre choix :   ")
-        
-        choice = readLine()
-        
-        if let warriorChoice = choice{
-            
-            switch warriorChoice {
-                
-            case "1" : selectWarrior = warriorChoice
-                
-            case "2" : selectWarrior = warriorChoice
-                
-            case "3" : selectWarrior = warriorChoice
-                
-            case "4" : selectWarrior = warriorChoice
-                
-                
-            default :print("Merci de choisir un numéro entre 1 et 4 \n\n")
-                selectWarrior = warriorSelected(number: number)
-                
-                
-            }
-            
-        }
-        return selectWarrior
-    }
-    
     
     func warriorname () -> String{
         
-        var name:String?
-        var nWarrior: String = ""
-        var nameIsDifferent: Bool
+        var nameWarrior: String = ""
+        //var nameIsDifferent: Bool = true
         
-        print("Nom du Warrior :   ")
-        
-        // if verifier l optionnel si pas Nil cours deballage + 1234
-    
-        name = readLine()
-        
-        if let nameW = name {
+        repeat{
+            print("Nom du Warrior :   ")
+            nameWarrior = inputString()
             
-            //If name does not have letter
-            /////faire une boucle
-            if nameW==""{
-                
-                print("Merci de saisir le Nom du Warrior \n\n")
-                var nameWarrior: String
-                nameWarrior = warriorname()
-                nWarrior = nameWarrior
-                
-            }else{
-                
-            //Loops to check if name is alreay in warriorTeam
-                ///// a refaire toute equipe nom unique func a part pour ca voir acces game et Team
-                nameIsDifferent = true
-                if warriorTeam.count != 0 {
-                       for i in 0 ..< warriorTeam.count{
-                        
-                            if nameW == warriorTeam[i].name{
-                                    nameIsDifferent = false
-                                }
-                        }
-                }
-            //If name is already use please try a new one
-                if nameIsDifferent == false{
+            /*//Loops to check if name is alreay in warriorTeam
+            if warriorTeam.count != 0 {
+                for i in 0 ..< warriorTeam.count{
                     
-                        print("Ce nom existe déjà Merci de saisir un nouveau Nom de Warrior \n\n")
-                        var nameWarrior: String
-                        nameWarrior = warriorname()
-                        nWarrior = nameWarrior
-                    
-                }else{
-                    
-                        nWarrior = nameW
+                    if nameWarrior == warriorTeam[i].name{
+                        nameIsDifferent = false
+                    }
                     
                 }
-            }
+            }*/
             
-        }
-        return nWarrior
+            
+        }while nameWarrior == "" //|| nameIsDifferent == false
+        
+        return nameWarrior
+        
+     
     }
 
 

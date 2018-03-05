@@ -29,12 +29,10 @@ class Game {
             print("===============================")
         
         
-        //Create team1
-        //////faire une boucle pour eviter les repetitions
-        createTeam()
-        //Create team2
-        createTeam()
+        //Create 2 teams for each player
         
+        createTeams()
+       
         //show team number
         teams[0].showTeam()
         teams[1].showTeam()
@@ -52,12 +50,12 @@ class Game {
     }
     
     func inputString() -> String {
-        guard let data = readLine() else { return "0" }
+        guard let data = readLine() else { return "" }
         return data
     }
     
     /////////////////////////////////////////Methods to create Team with name ///////////////////////////////////////////
-    func createTeam(){
+    func createTeams(){
         
         var player: Int = 0
         var teamN:String
@@ -72,48 +70,35 @@ class Game {
             let newTeam = Team(teamName: teamN)
             
             var warriorNumber: Int = 0
-            // Selection of 3 Warriors
+            
+            
+            // Selection of 3 Warriors for each team
             repeat{
-                
+                newTeam.createWarrior(number: warriorNumber)
                 warriorNumber+=1
-                
-                newTeam.createWarrior(number: 1)
-                
+
             }while warriorNumber < 3
             
             teams.append(newTeam)
             
         }while player < 2
-        
-        
-       /* print("Nous allons commencer la création de votre équipe \n\n")
-        
-        
-        teamN = createNameTeam()
-    
-        let newTeam = Team(teamName: teamN)
-        /////faire une boucle
-        newTeam.createWarrior(number: 1)
-        
-        newTeam.createWarrior(number: 2)
-        
-        newTeam.createWarrior(number: 3)
-        teams.append(newTeam)*/
-    
-    
+
     }
     
     // Methods that give a name to Team
     func createNameTeam() -> String {
+        
         var nameTeam: String = ""
+        
         repeat{
             
             print("Name of Your Team :  ")
+            
             nameTeam = inputString()
             
-        }while nameTeam != ""
+        }while nameTeam == ""
         
-        
+        return nameTeam
         
        /*print("Nom de votre équipe :  ")
         var name: String?
