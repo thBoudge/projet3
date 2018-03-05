@@ -1,5 +1,5 @@
 //
-//  Hache.swift
+//  Sword.swift
 //  Warriors
 //
 //  Created by thomas bouges on 18-02-22.
@@ -8,17 +8,15 @@
 
 import Foundation
 
-class Hache: Weapon{
+class Sword: Weapon{
     
     
     init() {
         
-        super.init(nameWeapon: "Hache", powerWeapon: 40)
+        super.init(nameWeapon: "Epee", powerWeapon: 10)
         
     }
     
     
 }
-
-
 

@@ -43,13 +43,13 @@ class Team {
         
         switch warrior {
         case "1":
-            warriorTeam.append(Combattant(name: nameWarrior))
+            warriorTeam.append(Fighter(name: nameWarrior))
         case "2":
-            warriorTeam.append(Colosse(name: nameWarrior))
+            warriorTeam.append(Colossus(name: nameWarrior))
         case "3":
-            warriorTeam.append(Nain(name: nameWarrior))
+            warriorTeam.append(Dwarf(name: nameWarrior))
         case "4":
-            warriorTeam.append(Mage(name: nameWarrior))
+            warriorTeam.append(Wizard(name: nameWarrior))
         default:
             print("saisir un chiffre entre 1 et 4")
         }
@@ -107,12 +107,13 @@ class Team {
         print("Nom du Warrior :   ")
         
         // if verifier l optionnel si pas Nil cours deballage + 1234
-        
-        name = readLine()!
+    
+        name = readLine()
         
         if let nameW = name {
             
             //If name does not have letter
+            /////faire une boucle
             if nameW==""{
                 
                 print("Merci de saisir le Nom du Warrior \n\n")
@@ -123,6 +124,7 @@ class Team {
             }else{
                 
             //Loops to check if name is alreay in warriorTeam
+                ///// a refaire toute equipe nom unique func a part pour ca voir acces game et Team
                 nameIsDifferent = true
                 if warriorTeam.count != 0 {
                        for i in 0 ..< warriorTeam.count{

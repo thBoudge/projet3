@@ -15,11 +15,22 @@ class Game {
     var teams = [Team]()
     var team1: Int = 1 //properties to evaluate power of Team1
     var team2: Int = 1 //properties to evaluate power of Team2
-    
+    var victory: Bool = false // boolean to confirm victory and end of party
     
     func play(){
         
+        // Game welcome start message
+        
+            print("")
+            print("===============================")
+            print()
+            print("Bienvenue dans le Jeu Warriors")
+            print()
+            print("===============================")
+        
+        
         //Create team1
+        //////faire une boucle pour eviter les repetitions
         createTeam()
         //Create team2
         createTeam()
@@ -32,36 +43,86 @@ class Game {
      
     }
     
+    /////////////////////////////////////////Methods to get player reponse and return an int ////////////////////////////
+    
+    func inputInt() -> Int {
+        guard let data = readLine() else { return 0 }
+        guard let dataToInt = Int(data) else { return 0 }
+        return dataToInt
+    }
+    
+    func inputString() -> String {
+        guard let data = readLine() else { return "0" }
+        return data
+    }
+    
     /////////////////////////////////////////Methods to create Team with name ///////////////////////////////////////////
     func createTeam(){
-    
-   print("Bienvenue, Nous allons commencer la création de votre équipe \n\n")
         
+        var player: Int = 0
         var teamN:String
+        
+        repeat{
+            player+=1 // Question pourquoi ++ ne fonctionne pas\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+                
+            print("Player \(player) please enter your Team name \n\n")
+            
+            teamN = createNameTeam()
+            
+            let newTeam = Team(teamName: teamN)
+            
+            var warriorNumber: Int = 0
+            // Selection of 3 Warriors
+            repeat{
+                
+                warriorNumber+=1
+                
+                newTeam.createWarrior(number: 1)
+                
+            }while warriorNumber < 3
+            
+            teams.append(newTeam)
+            
+        }while player < 2
+        
+        
+       /* print("Nous allons commencer la création de votre équipe \n\n")
+        
+        
         teamN = createNameTeam()
     
-    let newTeam = Team(teamName: teamN)
-    
-    newTeam.createWarrior(number: 1)
-    
-    newTeam.createWarrior(number: 2)
-    
-    newTeam.createWarrior(number: 3)
-    teams.append(newTeam)
+        let newTeam = Team(teamName: teamN)
+        /////faire une boucle
+        newTeam.createWarrior(number: 1)
+        
+        newTeam.createWarrior(number: 2)
+        
+        newTeam.createWarrior(number: 3)
+        teams.append(newTeam)*/
     
     
     }
     
     // Methods that give a name to Team
     func createNameTeam() -> String {
+        var nameTeam: String = ""
+        repeat{
+            
+            print("Name of Your Team :  ")
+            nameTeam = inputString()
+            
+        }while nameTeam != ""
         
-        print("Nom de votre équipe :  ")
+        
+        
+       /*print("Nom de votre équipe :  ")
         var name: String?
             name = readLine()
         
         //?? Pourquoi accepte t il le ""
         if let nameTeam = name{
             
+            ////////utiliser une boucle while tant que different de ""
             if nameTeam==""{
                 print("Merci de saisir le Nom de votre équipe  \n\n")
                 var nameTeam: String
@@ -72,12 +133,14 @@ class Game {
                 }
             
         }else{
+            ////// arevoir doublon juste retour
             print("Merci de saisir le Nom de votre équipe  \n\n")
             var nameTeam: String
             nameTeam = createNameTeam()
             return nameTeam
             
-        }
+        }*/
+ 
     }
     
     /////////////////////////////////////////Methods to start fight ///////////////////////////////////////////
@@ -95,17 +158,16 @@ class Game {
             if (attacNumber % 2 != 0){
                 attacTreat(team1: 1, team2: 0)
             }
+            
+            
+            
         }
-            powerlevel()
-            if team1 == 0 {
-                
-                print(" Team \(teams[1].teamName) destroyed Team \(teams[0].teamName) ")
-                
-            }else{
-                
-                print(" Team \(teams[0].teamName) destroyed Team \(teams[1].teamName) ")
-                
-            }
+        
+       /* if victory == true {
+            
+            print()
+        }*/
+        
         
     }
     
@@ -151,15 +213,17 @@ class Game {
         var teamWarriorTreat: String?
         var striker: Int
         var defender: Int
+        var warriorAlive: Int //properties to count warrior still alive
         
-        
+        victory = false
         
         print("\(teams[team1].teamName) choisi ton guerrier")
-        
+        warriorAlive = 0
         for i in 0 ..< teams[team1].warriorTeam.count {
                 //if to show only warrior over 0 level
                 if  teams[team1].warriorTeam[i].power > 0{
                     print("\(i)- \(teams[team1].warriorTeam[i].name) : weapon \(teams[team1].warriorTeam[i].warriorWeapon.nameWeapon)  \(teams[team1].warriorTeam[i].warriorWeapon.powerWeapon)")
+                    warriorAlive += 1
                 }
         }
         
@@ -212,15 +276,37 @@ class Game {
             attacNumber += 1
             
             powerlevel()
+           
             
+            victoryOrNot(teamOne: 0, teamtwo: 1)
+            
+            //if victory == false {
             // show result
             teams[0].showTeam()
             teams[1].showTeam()
+           // }
+            
             
             }
         
         
         }
+    //Methods to confirm if game have ending and who win
+    func victoryOrNot(teamOne: Int, teamtwo: Int) {
+        
+        if team1 == 0 {
+            
+            print(" Team \(teams[0].teamName) destroyed Team \(teams[1].teamName) ")
+            victory = true
+            
+        }
+        if team2 == 0 {
+            
+            print(" Team \(teams[1].teamName) destroyed Team \(teams[0].teamName) ")
+            victory = true
+        }
+        
+    }
     
         
     }

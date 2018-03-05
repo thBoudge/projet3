@@ -1,5 +1,5 @@
 //
-//  Colosse.swift
+//  Hammer.swift
 //  Warriors
 //
 //  Created by thomas bouges on 18-02-22.
@@ -8,17 +8,14 @@
 
 import Foundation
 
-class Colosse: Warrior{
+class Hammer: Weapon{
     
-    var typeAttac: String
     
-    init(name: String) {
+    init() {
         
-        self.typeAttac = "strike"
-        super.init(name: name,power: 100,weapon: Hache())
+        super.init(nameWeapon: "Marteau", powerWeapon: 80)
         
     }
     
     
 }
-

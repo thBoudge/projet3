@@ -1,5 +1,5 @@
 //
-//  Marteau.swift
+//  Colossus.swift
 //  Warriors
 //
 //  Created by thomas bouges on 18-02-22.
@@ -8,14 +8,17 @@
 
 import Foundation
 
-class Marteau: Weapon{
+class Colossus: Warrior{
     
+    var typeAttac: String
     
-    init() {
+    init(name: String) {
         
-        super.init(nameWeapon: "Marteau", powerWeapon: 50)
+        self.typeAttac = "strike"
+        super.init(name: name,power: 100,weapon: Axe())
         
     }
     
     
 }
+

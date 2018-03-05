@@ -1,5 +1,5 @@
 //
-//  Mage.swift
+//  Wizard.swift
 //  Warriors
 //
 //  Created by thomas bouges on 18-02-22.
@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Mage: Warrior{
+class Wizard: Warrior{
     
     var typeAttac: String
     
     init(name: String) {
         
         self.typeAttac = "treat"
-        super.init(name: name,power: 70, weapon: Soins())
+        super.init(name: name,power: 70, weapon: Treat())
         
     }
     

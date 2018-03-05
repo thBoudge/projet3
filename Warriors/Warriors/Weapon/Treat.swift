@@ -1,5 +1,5 @@
 //
-//  Nain.swift
+//  Treat.swift
 //  Warriors
 //
 //  Created by thomas bouges on 18-02-22.
@@ -8,17 +8,14 @@
 
 import Foundation
 
-class Nain: Warrior{
+class Treat: Weapon{
     
-    var typeAttac: String
     
-    init(name: String) {
+    init() {
         
-        self.typeAttac = "strike"
-        super.init(name: name,power: 80,weapon: Marteau())
+        super.init(nameWeapon: "Soins", powerWeapon: 30)
         
     }
     
     
 }
-

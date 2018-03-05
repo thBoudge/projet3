@@ -1,5 +1,5 @@
 //
-//  Epee.swift
+//  Fighter.swift
 //  Warriors
 //
 //  Created by thomas bouges on 18-02-22.
@@ -8,15 +8,18 @@
 
 import Foundation
 
-class Epee: Weapon{
+class Fighter: Warrior{
     
+    var typeAttac: String
     
-    init() {
+    init(name: String) {
         
-        super.init(nameWeapon: "Epee", powerWeapon: 10)
+        self.typeAttac = "strike"
+        super.init(name: name,power: 100,weapon: Sword())
         
     }
     
     
 }
+
 
