@@ -33,14 +33,7 @@ class Team {
     
     //////////////////////////////////
     
-    //Method to show each team warrior and weapon
-    func showTeam() -> Void{
-        
-        print("\(self.teamName)")
-        for i in 0...2{
-            print( "\n \(self.warriorTeam[i].name) power level:  \(self.warriorTeam[i].power) \n ")
-        }
-    }
+   
     
     // method to create one new warrior
     func createWarrior(number : Int){

@@ -33,8 +33,7 @@ class Game {
         createTeams()
        
         //show team number
-        teams[0].showTeam()
-        teams[1].showTeam()
+        showTeam(team1: 0, team2: 1)
         
         fight()
      
@@ -52,6 +51,7 @@ class Game {
         guard let data = readLine() else { return "" }
         return data
     }
+    
     
     /////////////////////////////////////////Methods to create Team with name ///////////////////////////////////////////
     func createTeams(){
@@ -127,6 +127,18 @@ class Game {
  
     }
     
+    
+    //Method to show each team warrior and power Level
+    func showTeam(team1:Int,team2:Int) -> Void{
+        print("=======================================================")
+        print("\(teams[team1].teamName)                    VS                \(teams[team2].teamName)  ")
+        print("=======================================================")
+        for i in 0...2{
+            print( "\(i)- \(teams[team1].warriorTeam[i].name) power level:  \(teams[team1].warriorTeam[i].power) ||| \(i)- \(teams[team2].warriorTeam[i].name) power level:  \(teams[team2].warriorTeam[i].power) ")
+        }
+        print("=======================================================")
+    }
+    
     /////////////////////////////////////////Methods to start fight ///////////////////////////////////////////
     
     func fight() {
@@ -137,16 +149,15 @@ class Game {
             if (attacNumber % 2 == 0){
                 attacTreat(team1: 0, team2: 1)
                 // show result
-                teams[0].showTeam()
-                teams[1].showTeam()
+               
+                showTeam(team1: 0, team2: 1)
             }
             
             // Team2 play when Bollean of attacNumber !=0
             if (attacNumber % 2 != 0){
                 attacTreat(team1: 1, team2: 0)
                 // show result
-                teams[0].showTeam()
-                teams[1].showTeam()
+                showTeam(team1: 0, team2: 1)
             }
             
         }while teams[0].warriorTeam[0].power + teams[0].warriorTeam[1].power + teams[0].warriorTeam[2].power > 0 && teams[1].warriorTeam[0].power + teams[1].warriorTeam[1].power + teams[1].warriorTeam[2].power > 0
@@ -155,11 +166,8 @@ class Game {
         
        
         // show result
-        teams[0].showTeam()
-        teams[1].showTeam()
-        
-
-            
+        showTeam(team1: 0, team2: 1)
+   
         }
         
  //Methods to select warrior of our team and Warrior to attac or treat
