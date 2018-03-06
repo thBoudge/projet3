@@ -161,7 +161,8 @@ class Game {
         
         var striker: Int
         var defender: Int
-        var warriorAlive: Int //properties to count warrior still alive
+        
+        var type: String // S = stricke vs T = treat
         
         
         // Selection of Warrior from our team who is going to treat or sticke
@@ -169,12 +170,12 @@ class Game {
             print("===============================")
             print("\(teams[team1].teamName) choise your warrior")
             
-            warriorAlive = 0
+           
             for i in 0 ..< teams[team1].warriorTeam.count {
                 //if to show only warrior over 0 level
                 if  teams[team1].warriorTeam[i].power > 0{
-                    print("\(i)- \(teams[team1].warriorTeam[i].name) : weapon \(teams[team1].warriorTeam[i].warriorWeapon.nameWeapon) Weapon power \(teams[team1].warriorTeam[i].warriorWeapon.powerWeapon)")
-                    warriorAlive += 1
+                    print("\(i+1)- \(teams[team1].warriorTeam[i].name) : weapon \(teams[team1].warriorTeam[i].warriorWeapon.nameWeapon) Weapon power \(teams[team1].warriorTeam[i].warriorWeapon.powerWeapon)")
+                   
                 }
             }
             
@@ -182,12 +183,15 @@ class Game {
             print("===============================")
             print("your choise: ")
             striker = inputInt()
+            striker -= 1
             
-            
-        }while striker != 1 && striker != 2 && striker != 3 //|| teams[team1].warriorTeam[striker].power <= 0
+        }while striker != 0 && striker != 1 && striker != 2 //|| teams[team1].warriorTeam[striker].power <= 0
         
         // Selection of Warrior from the other team who is going to be sticke or from our team who is going to be treat
         repeat{
+            
+            
+            
             print("===============================")
             
             if teams[team1].warriorTeam[striker].warriorWeapon.nameWeapon == "treat" {
@@ -196,35 +200,46 @@ class Game {
                 for i in 0 ..< teams[team1].warriorTeam.count{
                     //if to show only warrior over 0 level
                     if  teams[team1].warriorTeam[i].power > 0{
-                        print("\(i)- \(teams[team1].warriorTeam[i].name) : Power Level: \(teams[team1].warriorTeam[i].power) ")
+                        print("\(i + 1)- \(teams[team1].warriorTeam[i].name) : Power Level: \(teams[team1].warriorTeam[i].power) ")
                     }
                     
                 }
-                
+                type = "T"
             }else{
                     
                 print("Choise your Opponent:")
                 for i in 0 ..< teams[1].warriorTeam.count {
                     //if to show only warrior over 0 level
                     if  teams[1].warriorTeam[i].power > 0{
-                        print("\(i)- \(teams[team2].warriorTeam[i].name) : Power Level: \(teams[team2].warriorTeam[i].power)  ")
+                        print("\(i + 1)- \(teams[team2].warriorTeam[i].name) : Power Level: \(teams[team2].warriorTeam[i].power)  ")
                     }
                         
                 }
                 
-            
+                type = "S"
             }
             print("===============================")
             print("your choise: ")
             defender = inputInt()
+            defender -= 1
+            
+         
+            
+        }while defender != 0 && defender != 1 && defender != 2 //|| teams[team1].warriorTeam[defender].power <= 0
+        
+        //If Attack else Traitment
+        if type == "S" {
+            teams[team2].warriorTeam[defender].power -= teams[team1].warriorTeam[striker].warriorWeapon.powerWeapon
             
             // if power Level is under 0 change to 0
             if teams[team2].warriorTeam[defender].power < 0 {
                 teams[team2].warriorTeam[defender].power = 0
             }
             
-        }while defender != 1 && defender != 2 && defender != 3 //|| teams[team1].warriorTeam[defender].power <= 0
-            
+        }else{
+            teams[team1].warriorTeam[defender].power += teams[team1].warriorTeam[striker].warriorWeapon.powerWeapon
+        }
+        
          attacNumber += 1
         
     }
