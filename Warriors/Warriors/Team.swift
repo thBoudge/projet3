@@ -11,11 +11,12 @@ import Foundation
 class Team {
     
     var teamName: String
-    //tableau objet
-    var warriorTeam = [Warrior]()
+    //tab of objet
+    var warriorTeam = [Warrior]() // tab of 3 Warriors
+    
     
     init(teamName:String){
-        self.teamName=teamName
+        self.teamName = teamName
     }
     
     /////////////////////////////////////////Methods to get player reponse and return an int ////////////////////////////
@@ -36,7 +37,7 @@ class Team {
    
     
     // method to create one new warrior
-    func createWarrior(number : Int){
+    func createWarrior(number : Int, nameTab: [String])->String{
         
         var warrior: Int
         
@@ -57,52 +58,50 @@ class Team {
         
     }while warrior != 1 && warrior != 2 && warrior != 3 && warrior != 4
         
-        nameWarrior = warriorname()
-        
-        
+        nameWarrior = warriorname(nameTab: nameTab)
+            
         switch warrior {
         case 1:
             warriorTeam.append(Fighter(name: nameWarrior))
+            return nameWarrior
         case 2:
             warriorTeam.append(Wizard(name: nameWarrior))
+            return nameWarrior
         case 3:
             warriorTeam.append(Colossus(name: nameWarrior))
+            return nameWarrior
         case 4:
             warriorTeam.append(Dwarf(name: nameWarrior))
+            return nameWarrior
         default:
             print("error")
+            return "error"
         }
         
     
     }
     
     
-    func warriorname () -> String{
+    func warriorname (nameTab: [String]) -> String{
         
-        var nameWarrior: String = ""
-        //var nameIsDifferent: Bool = true
+        var nameWarrior: String
+        var nameIsDifferent: Bool
         
         repeat{
             print("Nom du Warrior :   ")
             nameWarrior = inputString()
+            nameIsDifferent = true
             
-            /*//Loops to check if name is alreay in warriorTeam
-            if warriorTeam.count != 0 {
-                for i in 0 ..< warriorTeam.count{
+            //Loops to check if name is alreay in warriorTeam
+            for i in 0 ..< nameTab.count{
                     
-                    if nameWarrior == warriorTeam[i].name{
+                    if nameWarrior == nameTab[i]{
                         nameIsDifferent = false
                     }
-                    
-                }
-            }*/
-            
-            
-        }while nameWarrior == "" //|| nameIsDifferent == false
+            }
+        }while  nameIsDifferent == false
         
         return nameWarrior
-        
-     
     }
 
 

@@ -13,9 +13,9 @@ class Game {
     
     var attacNumber: Int = 0
     var teams = [Team]()
-   
-    
-    
+    //var teamName:[String] = [""] // To regroup all  name in order to avoid similar name and "" no value
+    var warriorNames = [String]() // Tab to regroup all warrior name in order to avoid similar name and "" no value
+  
     func play(){
         
         // Game welcome start message
@@ -27,9 +27,11 @@ class Game {
             print()
             print("===============================")
         
+        //append "" no value in order to avoid no value on warrior names
+        
+        warriorNames.append("")
         
         //Create 2 teams for each player
-        
         createTeams()
        
         //show team number
@@ -73,7 +75,9 @@ class Game {
             
             // Selection of 3 Warriors for each team
             repeat{
-                newTeam.createWarrior(number: warriorNumber)
+                var namW: String
+                namW = newTeam.createWarrior(number: warriorNumber, nameTab: warriorNames)
+                warriorNames.append(namW)
                 warriorNumber+=1
 
             }while warriorNumber < 3
@@ -99,36 +103,11 @@ class Game {
         
         return nameTeam
         
-       /*print("Nom de votre équipe :  ")
-        var name: String?
-            name = readLine()
-        
-        //?? Pourquoi accepte t il le ""
-        if let nameTeam = name{
-            
-            ////////utiliser une boucle while tant que different de ""
-            if nameTeam==""{
-                print("Merci de saisir le Nom de votre équipe  \n\n")
-                var nameTeam: String
-                nameTeam = createNameTeam()
-                return nameTeam
-                }else{
-                return nameTeam
-                }
-            
-        }else{
-            ////// arevoir doublon juste retour
-            print("Merci de saisir le Nom de votre équipe  \n\n")
-            var nameTeam: String
-            nameTeam = createNameTeam()
-            return nameTeam
-            
-        }*/
- 
+       
     }
     
     
-    //Method to show each team warrior and power Level
+    //Method to show each team warriors and their power Level
     func showTeam(team1:Int,team2:Int) -> Void{
         print("=======================================================")
         print("\(teams[team1].teamName)                    VS                \(teams[team2].teamName)  ")
