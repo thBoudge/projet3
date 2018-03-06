@@ -136,11 +136,17 @@ class Game {
             // Team1 play when Bollean of attacNumber =0
             if (attacNumber % 2 == 0){
                 attacTreat(team1: 0, team2: 1)
+                // show result
+                teams[0].showTeam()
+                teams[1].showTeam()
             }
             
             // Team2 play when Bollean of attacNumber !=0
             if (attacNumber % 2 != 0){
                 attacTreat(team1: 1, team2: 0)
+                // show result
+                teams[0].showTeam()
+                teams[1].showTeam()
             }
             
         }while teams[0].warriorTeam[0].power + teams[0].warriorTeam[1].power + teams[0].warriorTeam[2].power > 0 && teams[1].warriorTeam[0].power + teams[1].warriorTeam[1].power + teams[1].warriorTeam[2].power > 0
@@ -242,7 +248,7 @@ class Game {
         print("Choise your Opponent:")
         for i in 0 ..< teams[1].warriorTeam.count {
             //if to show only warrior over 0 level
-            if  teams[1].warriorTeam[i].power > 0{
+            if  teams[team2].warriorTeam[i].power > 0{
                 print("\(i + 1)- \(teams[team2].warriorTeam[i].name) : Power Level: \(teams[team2].warriorTeam[i].power)  ")
             }
             
@@ -268,13 +274,13 @@ class Game {
         
         if teams[0].warriorTeam[0].power + teams[0].warriorTeam[1].power + teams[0].warriorTeam[2].power == 0 {
             
-            print(" Team \(teams[0].teamName) destroyed Team \(teams[1].teamName) ")
+            print(" Team \(teams[1].teamName) destroyed Team \(teams[0].teamName) ")
             
             
         }
         if teams[1].warriorTeam[0].power + teams[1].warriorTeam[1].power + teams[1].warriorTeam[2].power == 0 {
             
-            print(" Team \(teams[1].teamName) destroyed Team \(teams[0].teamName) ")
+            print(" Team \(teams[0].teamName) destroyed Team \(teams[1].teamName) ")
             
         }
         
