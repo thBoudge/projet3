@@ -13,7 +13,7 @@ class Game {
     
     var attacNumber: Int = 0
     var teams = [Team]()
-    //var teamName:[String] = [""] // To regroup all  name in order to avoid similar name and "" no value
+    var teamName = [String]() // To regroup all  name in order to avoid similar name and "" no value
     var warriorNames = [String]() // Tab to regroup all warrior name in order to avoid similar name and "" no value
   
     func play(){
@@ -27,9 +27,9 @@ class Game {
             print()
             print("===============================")
         
-        //append "" no value in order to avoid no value on warrior names
-        
+        //append "" no value in order to avoid no value on warrior names and on Team Name
         warriorNames.append("")
+        teamName.append("")
         
         //Create 2 teams for each player
         createTeams()
@@ -67,6 +67,7 @@ class Game {
             print("Player \(player) please enter your Team name \n\n")
             
             teamN = createNameTeam()
+            teamName.append(teamN)// add to tab of teamName
             
             let newTeam = Team(teamName: teamN)
             
@@ -91,15 +92,24 @@ class Game {
     // Methods that give a name to Team
     func createNameTeam() -> String {
         
-        var nameTeam: String = ""
+        var nameTeam: String
+        var nameIsDifferent: Bool
         
         repeat{
             
             print("Name of Your Team :  ")
-            
+            nameIsDifferent = true
             nameTeam = inputString()
             
-        }while nameTeam == ""
+            //Loops to check if name is alreay in warriorTeam
+            for i in 0 ..< teamName.count{
+                
+                if nameTeam == teamName[i]{
+                    nameIsDifferent = false
+                }
+            }
+            
+        }while nameIsDifferent == false
         
         return nameTeam
         
@@ -113,7 +123,7 @@ class Game {
         print("\(teams[team1].teamName)                    VS                \(teams[team2].teamName)  ")
         print("=======================================================")
         for i in 0...2{
-            print( "\(i)- \(teams[team1].warriorTeam[i].name) power level:  \(teams[team1].warriorTeam[i].power) ||| \(i)- \(teams[team2].warriorTeam[i].name) power level:  \(teams[team2].warriorTeam[i].power) ")
+            print( "\(i + 1)- \(teams[team1].warriorTeam[i].name) power level:  \(teams[team1].warriorTeam[i].power) ||| \(i + 1)- \(teams[team2].warriorTeam[i].name) power level:  \(teams[team2].warriorTeam[i].power) ")
         }
         print("=======================================================")
     }
