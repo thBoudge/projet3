@@ -112,8 +112,6 @@ class Game {
         }while nameIsDifferent == false
         
         return nameTeam
-        
-       
     }
     
     
@@ -159,14 +157,14 @@ class Game {
    
         }
         
- //Methods to select warrior of our team and Warrior to attac or treat
+    //Methods to select warrior of our team and Warrior to attac or treat
     func attacTreat(team1 : Int, team2 : Int){
         
         var striker: Int
         var defender: Int
         
         var type: String // S = stricke vs T = treat
-        
+        var powerLevelUnderO: Bool
         
         // Selection of Warrior from our team who is going to treat or sticke
         striker = yourWarrior(team1: team1, team2: team2)
@@ -174,7 +172,7 @@ class Game {
         
         // Selection of Warrior from the other team who is going to be sticke or from our team who is going to be treat
         repeat{
-          
+            powerLevelUnderO = false
             print("===============================")
             
             if teams[team1].warriorTeam[striker].warriorWeapon.nameWeapon == "treat" {
@@ -189,20 +187,37 @@ class Game {
             print("your choise: ")
             defender = inputInt()
             defender -= 1
+            
+            if type == "S" {
+                
+                if teams[team2].warriorTeam[defender].power <= 0{
+                    powerLevelUnderO = true
+                }
+                
+            }else{
+                if teams[team1].warriorTeam[defender].power <= 0{
+                    powerLevelUnderO = true
+                }
+            }
       
-        }while defender != 0 && defender != 1 && defender != 2 //|| teams[team1].warriorTeam[defender].power <= 0
+        }while defender != 0 && defender != 1 && defender != 2 || powerLevelUnderO == true
         
         //If Attack else Traitment
         if type == "S" {
             teams[team2].warriorTeam[defender].power -= teams[team1].warriorTeam[striker].warriorWeapon.powerWeapon
             
             // if power Level is under 0 change to 0
-            if teams[team2].warriorTeam[defender].power < 0 {
+            if teams[team2].warriorTeam[defender].power <= 0 {
                 teams[team2].warriorTeam[defender].power = 0
+                print("wariors \(teams[team2].warriorTeam[defender].name) is died")
+            }else{
+                print("wariors \(teams[team2].warriorTeam[defender].name) have been attacked power level is now: \(teams[team2].warriorTeam[defender].power)")
             }
             
         }else{
             teams[team1].warriorTeam[defender].power += teams[team1].warriorTeam[striker].warriorWeapon.powerWeapon
+            
+            print("wariors \(teams[team1].warriorTeam[defender].name) have been treat power level is now: \(teams[team1].warriorTeam[defender].power)")
         }
         
          attacNumber += 1
@@ -233,7 +248,7 @@ class Game {
             striker = inputInt()
             striker -= 1
             
-        }while striker != 0 && striker != 1 && striker != 2 //|| teams[team1].warriorTeam[striker].power <= 0
+        }while striker != 0 && striker != 1 && striker != 2 || teams[team1].warriorTeam[striker].power <= 0
         
         
         return striker
@@ -242,8 +257,8 @@ class Game {
     // show our opponnent list
     func showOpponent(team1 : Int, team2 : Int) ->Void{
         
-        print("Choise your Opponent:")
-        for i in 0 ..< teams[1].warriorTeam.count {
+        print("\(teams[team1].teamName) Choise your Opponent:")
+        for i in 0 ..< teams[team2].warriorTeam.count {
             //if to show only warrior over 0 level
             if  teams[team2].warriorTeam[i].power > 0{
                 print("\(i + 1)- \(teams[team2].warriorTeam[i].name) : Power Level: \(teams[team2].warriorTeam[i].power)  ")
