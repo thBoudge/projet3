@@ -13,7 +13,7 @@ class Treat: Weapon{
     
     init() {
         
-        super.init(nameWeapon: "Soins", powerWeapon: 30)
+        super.init(nameWeapon: "treat", powerWeapon: 30)
         
     }
     
