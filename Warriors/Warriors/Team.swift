@@ -36,7 +36,7 @@ class Team {
     
     func createWarriors(){
         
-        for i in 0..<2 {
+        for i in 0..<3 {
             createWarrior(number: i)
             
         }
@@ -168,6 +168,38 @@ class Team {
 
  */
 
+    //show all warrior alive from one team and return int of warrior selected
+    func warriorSelection() ->Int {
+        var striker: Int
+        
+        // Selection of Warrior from our team who is going to treat or sticke
+        repeat{
+            print("===============================")
+            print("\(self.teamName) choise your warrior")
+            
+            
+            for i in 0 ..< self.warriorTeam.count {
+                //if to show only warrior over 0 level
+                if  self.warriorTeam[i].power > 0{
+                    print("\(i+1)- \(self.warriorTeam[i].name) : power level : \(self.warriorTeam[i].power)\n weapon \(self.warriorTeam[i].warriorWeapon.nameWeapon) Weapon power \(self.warriorTeam[i].warriorWeapon.powerWeapon)")
+                    
+                }
+            }
+            
+            
+            print("===============================")
+            print("your choise: ")
+            striker = inputInt()
+            striker -= 1
+            
+            
+            
+        }while striker != 0 && striker != 1 && striker != 2 || self.warriorTeam[striker].power <= 0
+        
+        
+        return striker
+    }
+    
 
 }
 
