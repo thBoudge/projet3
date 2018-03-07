@@ -181,7 +181,8 @@ class Team {
             for i in 0 ..< self.warriorTeam.count {
                 //if to show only warrior over 0 level
                 if  self.warriorTeam[i].power > 0{
-                    print("\(i+1)- \(self.warriorTeam[i].name) : power level : \(self.warriorTeam[i].power)\n weapon \(self.warriorTeam[i].warriorWeapon.nameWeapon) Weapon power \(self.warriorTeam[i].warriorWeapon.powerWeapon)")
+                    print("\(i+1)- \(self.warriorTeam[i].name) : power level : \(self.warriorTeam[i].power)")
+                    print("        weapon \(self.warriorTeam[i].warriorWeapon.nameWeapon) Weapon power \(self.warriorTeam[i].warriorWeapon.powerWeapon)\n")
                     
                 }
             }
@@ -200,6 +201,23 @@ class Team {
         return warriorSelected
     }
     
+    // Check if power of team is = 0 and return a boolean
+    func powerLevelCount() ->Bool {
+        
+        var powerLevelTeam = true
+        
+        var teamPower: Int = 0
+        
+        for i in 0..<self.warriorTeam.count {
+            teamPower += self.warriorTeam[i].power
+        }
+        
+        if teamPower <= 0 {
+            powerLevelTeam = false
+        }
+        
+        return powerLevelTeam
+    }
 
 }
 

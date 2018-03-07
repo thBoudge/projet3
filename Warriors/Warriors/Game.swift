@@ -152,24 +152,40 @@ class Game {
     /////////////////////////////////////////Methods to start fight ///////////////////////////////////////////
     
     func fight() {
-       
+       var powerLevelOver0: Bool = true
         repeat{
+            
             
             // Team1 play when Bollean of attacNumber =0
             if (attacNumber % 2 == 0){
                 attacTreat(team1: 0, team2: 1)
                 // show result
                 showTeam(team1: 0, team2: 1)
+                
+                powerLevelOver0 = teams[1].powerLevelCount()
             }
             
             // Team2 play when Bollean of attacNumber !=0
             if (attacNumber % 2 != 0){
                 attacTreat(team1: 1, team2: 0)
+            
                 // show result
                 showTeam(team1: 0, team2: 1)
+                
+                powerLevelOver0 = teams[0].powerLevelCount()
             }
             
-        }while teams[0].warriorTeam[0].power + teams[0].warriorTeam[1].power + teams[0].warriorTeam[2].power != 0 && teams[1].warriorTeam[0].power + teams[1].warriorTeam[1].power + teams[1].warriorTeam[2].power != 0
+            // powerLevelCoubt return false if warriors power level = 0
+            if !teams[0].powerLevelCount() || !teams[1].powerLevelCount() {
+                
+                powerLevelOver0 = false
+            }
+            
+            
+        }while powerLevelOver0 == true
+            
+            
+            //teams[0].warriorTeam[0].power + teams[0].warriorTeam[1].power + teams[0].warriorTeam[2].power != 0 && teams[1].warriorTeam[0].power + teams[1].warriorTeam[1].power + teams[1].warriorTeam[2].power != 0
         
         
         victoryOrNot(teamOne: 0, teamtwo: 1)
@@ -188,6 +204,8 @@ class Game {
        
         // Selection of Warrior from our team who is going to treat or sticke
         striker = teams[team1].warriorSelection()
+        
+        // ajout changement wepon avec tresor
         
         // Selection of Warrior from the other team who is going to be sticke or from our team who is going to be treat
         repeat{
@@ -221,81 +239,7 @@ class Game {
         
     }
    
-    /*/Methods to select warrior of our team and Warrior to attac or treat
-    func attacTreat(team1 : Int, team2 : Int){
-        
-        var striker: Int
-        var defender: Int
-        // let number:Int = Int(arc4random_uniform(10)) // Random number to open treasure mettre dans methode coffre et lui faire appel
-        var type: String // S = stricke vs T = treat
-        var powerLevelUnderO: Bool
-        
-        // Selection of Warrior from our team who is going to treat or sticke
-        striker = teams[team1].warriorSelection()
-        
-        
-        
-        // Selection of Warrior from the other team who is going to be sticke or from our team who is going to be treat
-        repeat{
-            powerLevelUnderO = false
-            print("===============================")
-            let warrior = teams[team1].warriorTeam[striker]
-            //verifie si ton warrior est de type wyzard
-            
-            if let wizard = warrior as? Wizard{
-                
-                defender = teams[team1].warriorSelection()
-                
-            }
-            // juste un check
-            if warrior is Wizard {
-                
-                // on peut pas utiliser la methode soigner
-            }
-            
-            
-            if teams[team1].warriorTeam[striker].warriorWeapon.nameWeapon == "treat" {
-                showTeamWarrior(team1: team1, team2: team2)
-                type = "T"
-            }else{
-                showOpponent(team1: team1, team2: team2)
-                type = "S"
-            }
-            print("===============================")
-            
-            print("your choise: ")
-            defender = inputInt()
-            defender -= 1
-            
-            if type == "S" {
-                
-                if teams[team2].warriorTeam[defender].power <= 0{
-                    powerLevelUnderO = true
-                }
-                
-            }else{
-                if teams[team1].warriorTeam[defender].power <= 0{
-                    powerLevelUnderO = true
-                }
-            }
-            
-        }while defender != 0 && defender != 1 && defender != 2 || powerLevelUnderO == true
-        
-        //If Attack else Traitment
-        if type == "S" {
-            teams[team2].warriorTeam[defender].power -= teams[team1].warriorTeam[striker].warriorWeapon.powerWeapon
-            //Show result and change power level to ) if negative
-            powerLevelWarrior(warrior: teams[team2].warriorTeam[defender])
-        }else{
-            teams[team1].warriorTeam[defender].power += teams[team1].warriorTeam[striker].warriorWeapon.powerWeapon
-            
-            print("wariors \(teams[team1].warriorTeam[defender].name) have been treat power level is now: \(teams[team1].warriorTeam[defender].power)")
-        }
-        
-        attacNumber += 1
-        
-    }*/
-    
+
  
     
     //Methods to confirm if game have ending and who win
