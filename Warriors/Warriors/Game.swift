@@ -11,7 +11,7 @@ import Foundation
 
 class Game {
     
-    var attacNumber: Int = 0
+    var attacNumber: Int = 0 // count attack and depend on it choice which player is going to play
     var teams = [Team]()
     var teamName = [String]() // To regroup all  name in order to avoid similar name and "" no value
     var warriorNames = [String]() // Tab to regroup all warrior name in order to avoid similar name and "" no value
@@ -57,37 +57,60 @@ class Game {
     
     /////////////////////////////////////////Methods to create Team with name ///////////////////////////////////////////
     func createTeams(){
+      var teamN:String
         
-        var player: Int = 0
-        var teamN:String
-        
-        repeat{
-            player+=1 // Question pourquoi ++ ne fonctionne pas\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-                
-            print("Player \(player) please enter your Team name \n\n")
+        for _ in 0..<1 {
+          
+            print("Player  please enter your Team name \n\n")
             
             teamN = createNameTeam()
             teamName.append(teamN)// add to tab of teamName
             
             let newTeam = Team(teamName: teamN)
+            newTeam.createWarriors()
             
-            var warriorNumber: Int = 0
-            
-            
-            // Selection of 3 Warriors for each team
-            repeat{
-                var namW: String
-                namW = newTeam.createWarrior(number: warriorNumber, nameTab: warriorNames)
-                warriorNames.append(namW)
-                warriorNumber+=1
-
-            }while warriorNumber < 3
             
             teams.append(newTeam)
             
-        }while player < 2
+        }
 
     }
+    
+    /*
+     func createTeams(){
+     
+     var player: Int = 0
+     var teamN:String
+     
+     repeat{
+     player+=1 // Question pourquoi ++ ne fonctionne pas\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+     
+     print("Player \(player) please enter your Team name \n\n")
+     
+     teamN = createNameTeam()
+     teamName.append(teamN)// add to tab of teamName
+     
+     let newTeam = Team(teamName: teamN)
+     
+     var warriorNumber: Int = 0
+     
+     
+     // Selection of 3 Warriors for each team
+     repeat{
+     var namW: String
+     
+     namW = newTeam.createWarrior(number: warriorNumber, nameTab: warriorNames)
+     warriorNames.append(namW)
+     warriorNumber+=1
+     
+     }while warriorNumber < 3
+     
+     teams.append(newTeam)
+     
+     }while player < 2
+     
+     }
+ */
     
     // Methods that give a name to Team
     func createNameTeam() -> String {
@@ -163,7 +186,7 @@ class Game {
         
         var striker: Int
         var defender: Int
-       // let number:Int = Int(arc4random_uniform(10)) // Random number to open treasure
+       // let number:Int = Int(arc4random_uniform(10)) // Random number to open treasure mettre dans methode coffre et lui faire appel
         var type: String // S = stricke vs T = treat
         var powerLevelUnderO: Bool
         
@@ -175,10 +198,23 @@ class Game {
         treasure(team1: 0, team2: 1, striker: striker)
         
        }else{*/
+        
          // Selection of Warrior from the other team who is going to be sticke or from our team who is going to be treat
                 repeat{
                     powerLevelUnderO = false
                     print("===============================")
+                    let warrior = teams[team1].warriorTeam[striker]
+                    //verifie si ton warrior est de type wyzard
+                    if let wizard = warrior as? Wizard{
+                       
+                        
+                    }
+                    // juste un check
+                    if warrior is Wizard {
+                        
+                        // on peut pas utiliser la methode soigner
+                    }
+                    
                     
                     if teams[team1].warriorTeam[striker].warriorWeapon.nameWeapon == "treat" {
                         showTeamWarrior(team1: team1, team2: team2)
@@ -222,7 +258,7 @@ class Game {
         
     }
     
-    // show our team Warrior and return warrior number as stricker
+    // show our team Warrior and return warrior number as stricker \\\\\\\\\\Mettre dans TEAM, faire en 1 lister avec appel remplace show autre\\\\\\\\\\\
     func yourWarrior(team1 : Int, team2 : Int) ->Int {
         var striker: Int
         
@@ -252,7 +288,7 @@ class Game {
         return striker
     }
     
-    // show our opponnent list
+    // show our opponnent list \\\\\\\\\\Mettre dans TEAM\\\\\\\\\\\
     func showOpponent(team1 : Int, team2 : Int) ->Void{
         
         print("\(teams[team1].teamName) Choise your Opponent:")
@@ -266,7 +302,7 @@ class Game {
         
     }
     
-    //show power level of our team warrior
+    //show power level of our team warrior \\\\\\\\\\Mettre dans TEAM\\\\\\\\\\\
     func showTeamWarrior(team1 : Int, team2 : Int) ->Void{
         
         print("\(teams[team1].teamName)  Choice one of your warrior team mate: \n")
@@ -296,7 +332,7 @@ class Game {
         
     }
     
-    //Methods to open tresure : new arm to attack or treat
+    //Methods to open treasure : new arm to attack or treat
     func treasure(team1 : Int, team2 : Int, striker: Int) -> Void {
         var powerLevelUnderO: Bool = false
         var defender:Int

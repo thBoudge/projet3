@@ -10,7 +10,7 @@ import Foundation
 
 class Warrior {
     
-    var name:String
+    let name:String
     var power:Int
     var warriorWeapon: Weapon
     

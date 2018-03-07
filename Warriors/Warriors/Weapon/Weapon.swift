@@ -10,8 +10,8 @@ import Foundation
 
 class Weapon {
     
-    var nameWeapon:String
-    var powerWeapon:Int
+    let nameWeapon:String
+    let powerWeapon:Int
     
     
     init(nameWeapon:String, powerWeapon:Int){

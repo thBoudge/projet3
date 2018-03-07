@@ -10,7 +10,7 @@ import Foundation
 
 class Team {
     
-    var teamName: String
+    let teamName: String
     //tab of objet
     var warriorTeam = [Warrior]() // tab of 3 Warriors
     
@@ -34,75 +34,139 @@ class Team {
     
     //////////////////////////////////
     
-   
+    func createWarriors(){
+        
+        for i in 0..<2 {
+            createWarrior(number: i)
+            
+        }
+    }
     
     // method to create one new warrior
-    func createWarrior(number : Int, nameTab: [String])->String{
+    func createWarrior(number : Int){
         
         var warrior: Int
         
         var nameWarrior: String
         
         repeat{
-        print("")
-        print("===============================")
-        print("Please Choice your warrior \(number + 1)")
-        print("1 - Figher power: Weapon: strike:")
-        print("2 - Wizard power: Weapon: strike:")
-        print("3 - Colossus power: Weapon: strike:")
-        print("4 - Dwarf power: Weapon: strike:")
-        print("===============================")
-        print("Please enter your choice :")
+            print("")
+            print("===============================")
+            print("Please Choice your warrior \(number + 1)")
+            print("1 - Figher power: Weapon: strike:")
+            print("2 - Wizard power: Weapon: strike:")
+            print("3 - Colossus power: Weapon: strike:")
+            print("4 - Dwarf power: Weapon: strike:")
+            print("===============================")
+            print("Please enter your choice :")
             
-        warrior = inputInt()
+            warrior = inputInt()
         
-    }while warrior != 1 && warrior != 2 && warrior != 3 && warrior != 4
+        }while warrior != 1 && warrior != 2 && warrior != 3 && warrior != 4
         
-        nameWarrior = warriorname(nameTab: nameTab)
+        nameWarrior = warriorname()
             
         switch warrior {
-        case 1:
-            warriorTeam.append(Fighter(name: nameWarrior))
-            return nameWarrior
-        case 2:
-            warriorTeam.append(Wizard(name: nameWarrior))
-            return nameWarrior
-        case 3:
-            warriorTeam.append(Colossus(name: nameWarrior))
-            return nameWarrior
-        case 4:
-            warriorTeam.append(Dwarf(name: nameWarrior))
-            return nameWarrior
-        default:
-            print("error")
-            return "error"
+            case 1:
+                warriorTeam.append(Fighter(name: nameWarrior))
+            
+            case 2:
+                warriorTeam.append(Wizard(name: nameWarrior))
+            
+            case 3:
+                warriorTeam.append(Colossus(name: nameWarrior))
+            
+            case 4:
+                warriorTeam.append(Dwarf(name: nameWarrior))
+            
+            default:
+                break
+            
         }
         
     
     }
     
+/*func createWarrior(number : Int, nameTab: [String])->String{
+ 
+ var warrior: Int
+ 
+ var nameWarrior: String
+ 
+ repeat{
+ print("")
+ print("===============================")
+ print("Please Choice your warrior \(number + 1)")
+ print("1 - Figher power: Weapon: strike:")
+ print("2 - Wizard power: Weapon: strike:")
+ print("3 - Colossus power: Weapon: strike:")
+ print("4 - Dwarf power: Weapon: strike:")
+ print("===============================")
+ print("Please enter your choice :")
+ 
+ warrior = inputInt()
+ 
+ }while warrior != 1 && warrior != 2 && warrior != 3 && warrior != 4
+ 
+ nameWarrior = warriorname(nameTab: nameTab)
+ 
+ switch warrior {
+ case 1:
+ warriorTeam.append(Fighter(name: nameWarrior))
+ return nameWarrior
+ case 2:
+ warriorTeam.append(Wizard(name: nameWarrior))
+ return nameWarrior
+ case 3:
+ warriorTeam.append(Colossus(name: nameWarrior))
+ return nameWarrior
+ case 4:
+ warriorTeam.append(Dwarf(name: nameWarrior))
+ return nameWarrior
+ default:
+ print("error")
+ return "error"
+ }
+ 
+ 
+ }*/
     
-    func warriorname (nameTab: [String]) -> String{
+    
+    func warriorname () -> String{
         
         var nameWarrior: String
-        var nameIsDifferent: Bool
-        
         repeat{
             print("Nom du Warrior :   ")
             nameWarrior = inputString()
-            nameIsDifferent = true
-            
-            //Loops to check if name is alreay in warriorTeam
-            for i in 0 ..< nameTab.count{
-                    
-                    if nameWarrior == nameTab[i]{
-                        nameIsDifferent = false
-                    }
-            }
-        }while  nameIsDifferent == false
+        }while  nameWarrior == ""
         
         return nameWarrior
     }
+    
+    /*
+     func warriorname (nameTab: [String]) -> String{
+     
+     var nameWarrior: String
+     var nameIsDifferent: Bool
+     
+     repeat{
+     print("Nom du Warrior :   ")
+     nameWarrior = inputString()
+     nameIsDifferent = true
+     
+     //Loops to check if name is alreay in warriorTeam
+     for i in 0 ..< nameTab.count{
+     
+     if nameWarrior == nameTab[i]{
+     nameIsDifferent = false
+     }
+     }
+     }while  nameIsDifferent == false
+     
+     return nameWarrior
+     }
+
+ */
 
 
 }
