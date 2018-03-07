@@ -149,6 +149,7 @@ class Game {
             
         }while teams[0].warriorTeam[0].power + teams[0].warriorTeam[1].power + teams[0].warriorTeam[2].power != 0 && teams[1].warriorTeam[0].power + teams[1].warriorTeam[1].power + teams[1].warriorTeam[2].power != 0
         
+        
         victoryOrNot(teamOne: 0, teamtwo: 1)
         
        
