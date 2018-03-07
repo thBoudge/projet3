@@ -170,7 +170,7 @@ class Team {
 
     //show all warrior alive from one team and return int of warrior selected
     func warriorSelection() ->Int {
-        var striker: Int
+        var warriorSelected: Int
         
         // Selection of Warrior from our team who is going to treat or sticke
         repeat{
@@ -189,15 +189,15 @@ class Team {
             
             print("===============================")
             print("your choise: ")
-            striker = inputInt()
-            striker -= 1
+            warriorSelected = inputInt()
+            warriorSelected -= 1
             
             
             
-        }while striker != 0 && striker != 1 && striker != 2 || self.warriorTeam[striker].power <= 0
+        }while warriorSelected != 0 && warriorSelected != 1 && warriorSelected != 2 || self.warriorTeam[warriorSelected].power <= 0
         
         
-        return striker
+        return warriorSelected
     }
     
 
