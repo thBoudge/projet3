@@ -201,7 +201,7 @@ class Team {
         return warriorSelected
     }
     
-    // Check if power of team is = 0 and return a boolean
+    // Check if power of team is == 0 and return a boolean
     func powerLevelCount() ->Bool {
         
         var powerLevelTeam = true

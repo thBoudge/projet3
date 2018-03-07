@@ -162,7 +162,6 @@ class Game {
                 // show result
                 showTeam(team1: 0, team2: 1)
                 
-                powerLevelOver0 = teams[1].powerLevelCount()
             }
             
             // Team2 play when Bollean of attacNumber !=0
@@ -172,7 +171,6 @@ class Game {
                 // show result
                 showTeam(team1: 0, team2: 1)
                 
-                powerLevelOver0 = teams[0].powerLevelCount()
             }
             
             // powerLevelCoubt return false if warriors power level = 0
