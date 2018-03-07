@@ -219,5 +219,28 @@ class Team {
         return powerLevelTeam
     }
 
+    func treasure(striker : Int){
+        
+        let number:Int = Int(arc4random_uniform(5))
+        let warrior = self.warriorTeam[striker]
+        
+        if number == 4 {
+            if let wizard = warrior as? Wizard{
+                
+                wizard.warriorWeapon = Wine()
+                print("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=")
+                print("\(wizard.name) WINE is your new Weapon")
+                print("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=")
+            }else{
+                warrior.warriorWeapon = Thunder()
+                print("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=")
+                print("\(wizard.name) THUNDER is your new Weapon")
+                print("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=")
+            }
+   
+        }
+        
+    }
+    
 }
 

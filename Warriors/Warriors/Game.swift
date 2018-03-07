@@ -204,6 +204,7 @@ class Game {
         striker = teams[team1].warriorSelection()
         
         // ajout changement wepon avec tresor
+        teams[team1].treasure(striker: striker)
         
         // Selection of Warrior from the other team who is going to be sticke or from our team who is going to be treat
         repeat{
