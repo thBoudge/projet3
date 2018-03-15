@@ -118,10 +118,16 @@ class Game {
     
     func fight() {
        var powerLevelOver0: Bool = true
+        
         repeat{
             // Team1 play when Bollean of attacNumber =0
             if (attacNumber % 2 == 0){
                 attacTreat(team1: 0, team2: 1)
+                
+                // powerLevelCount return false if Allwarriors team1 power level = 0
+                if !teams[1].powerLevelCount() {
+                    powerLevelOver0 = false
+                }
                 
             }
             
@@ -129,12 +135,14 @@ class Game {
             if (attacNumber % 2 != 0){
                 attacTreat(team1: 1, team2: 0)
                 
+                // powerLevelCount return false if Allwarriors team0 power level = 0
+                if !teams[0].powerLevelCount() {
+                    powerLevelOver0 = false
+                }
+                
             }
             
-            // powerLevelCoubt return false if Allwarriors power level = 0
-            if !teams[0].powerLevelCount() || !teams[1].powerLevelCount() {
-                powerLevelOver0 = false
-            }
+           
             
             
         }while powerLevelOver0 == true

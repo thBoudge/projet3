@@ -256,8 +256,8 @@ class Team {
             
             
         }else{
-            if warrior.power <= 0 {// if power Level is under 0 change to 0
-                warrior.power = 0
+            if defender.power <= 0 {// if power Level is under 0 change to 0
+                defender.power = 0
                 print("\n\n++++++++++++++++++++++++++++++++++++++++++++++++++++")
                 print("XXXXXX  wariors \(defender.name) IS DIED  XXXXXX")
                 print("++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n")
