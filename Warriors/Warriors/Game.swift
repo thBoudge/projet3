@@ -41,19 +41,6 @@ class Game {
      
     }
     
-    /////////////////////////////////////////Methods to get player reponse and return an int ////////////////////////////
-    
-    func inputInt() -> Int {
-        guard let data = readLine() else { return 0 }
-        guard let dataToInt = Int(data) else { return 0 }
-        return dataToInt
-    }
-    
-    func inputString() -> String {
-        guard let data = readLine() else { return "" }
-        return data
-    }
-    
     
     /////////////////////////////////////////Methods to create Team with name ///////////////////////////////////////////
     func createTeams(){
@@ -87,7 +74,7 @@ class Game {
             
             print("Name of Your Team :  ")
             nameIsDifferent = true
-            nameTeam = inputString()
+            nameTeam = Input.inputString()
             
             //Loops to check if name is alreay in warriorTeam
             for i in 0 ..< teamName.count{
@@ -120,6 +107,8 @@ class Game {
        var powerLevelOver0: Bool = true
         
         repeat{
+            
+            
             // Team1 play when Bollean of attacNumber =0
             if (attacNumber % 2 == 0){
                 attacTreat(team1: 0, team2: 1)
@@ -131,8 +120,8 @@ class Game {
                 
             }
             
-            // Team2 play when Bollean of attacNumber !=0
-            if (attacNumber % 2 != 0){
+            // Team2 play when Bollean of attacNumber !=0 and totalpower of team2 > 0
+            if (attacNumber % 2 != 0) && teams[1].powerLevelCount() == true{
                 attacTreat(team1: 1, team2: 0)
                 
                 // powerLevelCount return false if Allwarriors team0 power level = 0
@@ -149,6 +138,8 @@ class Game {
         
         victoryOrNot(teamOne: 0, teamtwo: 1)
         // show result
+        print("\n Game was done on a total of \(attacNumber) attacks/treatment \n")
+        
         showTeam(team1: 0, team2: 1)
         
    
@@ -168,7 +159,7 @@ class Game {
         
         // Selection of Warrior from the other team who is going to be sticke or from our team who is going to be treat
         repeat{
-                    print("===============================")
+                    print("============== VS//TO =================")
                     let warrior = teams[team1].warriorTeam[striker]
                     //verifie si ton warrior est de type wyzard
                     //other option if let wizard = warrior as? Wizard{}

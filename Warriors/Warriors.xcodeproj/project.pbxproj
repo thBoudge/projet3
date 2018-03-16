@@ -22,6 +22,7 @@
 		B796E606203DEED80063E26F /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796E605203DEED80063E26F /* Game.swift */; };
 		B796E608203DF17A0063E26F /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796E607203DF17A0063E26F /* Team.swift */; };
 		B796E60A203DF1C40063E26F /* Warrior.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796E609203DF1C40063E26F /* Warrior.swift */; };
+		B7BDC0C1205ABD72003E1BD2 /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BDC0C0205ABD72003E1BD2 /* Input.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,6 +54,7 @@
 		B796E605203DEED80063E26F /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		B796E607203DF17A0063E26F /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		B796E609203DF1C40063E26F /* Warrior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warrior.swift; sourceTree = "<group>"; };
+		B7BDC0C0205ABD72003E1BD2 /* Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				B796E607203DF17A0063E26F /* Team.swift */,
 				B7736BD02040732B00704E1C /* Warrior */,
 				B7736BCF20406DCF00704E1C /* Weapon */,
+				B7BDC0C0205ABD72003E1BD2 /* Input.swift */,
 			);
 			path = Warriors;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				B761DA10203F5D700019DB29 /* Sword.swift in Sources */,
 				B761DA16203F5ED70019DB29 /* Hammer.swift in Sources */,
 				B761DA18203F79060019DB29 /* Weapon.swift in Sources */,
+				B7BDC0C1205ABD72003E1BD2 /* Input.swift in Sources */,
 				B796E608203DF17A0063E26F /* Team.swift in Sources */,
 				B77D1E52205095E80086112C /* Wine.swift in Sources */,
 				B796E5FF203DED7A0063E26F /* main.swift in Sources */,
