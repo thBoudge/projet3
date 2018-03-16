@@ -19,6 +19,60 @@ class Team {
     }
     
     
+    /////////////////////////////////////////Methods to create Team with name ///////////////////////////////////////////
+   static func createTeam() ->Team {
+    
+        var name:String = ""
+        
+       
+            print("Player  please enter your Team name \n\n")
+            
+            name = createNameTeam()
+          //  teamName.append(teamN)// add to tab of teamName
+            
+            let newTeam = Team(teamName: name)
+            newTeam.createWarriors()
+            
+            
+            return newTeam
+            
+        
+        
+    }
+    
+    
+    // Methods that give a name to Team
+    static func createNameTeam() -> String {
+        
+        var nameTeam: String
+        var nameIsDifferent: Bool
+        
+        repeat{
+            
+            print("Name of Your Team :  ")
+            nameIsDifferent = true
+            nameTeam = Input.inputString()
+            
+        
+            
+            nameIsDifferent = ab.teamNameVerify(name: nameTeam)
+          /*     //Loops to check if name is alreay in warriorTeam
+            for i in 0 ..< teamName.count{
+                
+             if nameTeam == teamName[i]{
+                    nameIsDifferent = false
+                }
+            }*/
+            
+        }while nameIsDifferent == false
+        
+        return nameTeam
+    }
+    
+    
+    
+     /////////////////////////////////////////Create Warriors///////////////////////////////////////////
+    
     //Methods to create 3 new warriors
     func createWarriors(){
         
@@ -79,12 +133,13 @@ class Team {
     func warriorname () -> String{
         
         var nameWarrior: String
+        var newWarriorName: Bool = true
         repeat{
             print("Nom du Warrior :   ")
             nameWarrior = Input.inputString()
+            newWarriorName = ab.warriorsNameVerify(name: nameWarrior)
             
-            
-        }while  nameWarrior == ""
+        }while  newWarriorName == false
         
         return nameWarrior
     }
@@ -122,6 +177,8 @@ class Team {
         return warriorSelected
     }
     
+    
+    /////////////////////////////////////////Power Level Warriors check///////////////////////////////////////////
     // Check if power of team is == 0 and return a boolean
     func powerLevelCount() ->Bool {
         
@@ -140,6 +197,8 @@ class Team {
         return powerLevelTeam
     }
 
+    
+    /////////////////////////////////////////Treasure///////////////////////////////////////////
     // Treasure open randomly : new weapon for Warriors and new treatment for Wizards
     func treasure(striker : Int){
         
@@ -164,7 +223,7 @@ class Team {
         
     }
     
-    
+    /////////////////////////////////////////Methods Show ///////////////////////////////////////////
     //Methods to show result of stricke on warrior or treatment
     func showPowerLevelWarrior(defender: Warrior, stricker: Int) -> Void{
         

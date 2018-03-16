@@ -16,6 +16,7 @@ class Game {
     var teamName = [String]() // To regroup all  name in order to avoid similar name and "" no value
     var warriorNames = [String]() // Tab to regroup all warrior name in order to avoid similar name and "" no value
   
+    /////////////////////////////////////////Methods to start the Game ///////////////////////////////////////////
     func play(){
         
         // Game welcome start message
@@ -37,13 +38,27 @@ class Game {
         //show team number
         showTeam(team1: 0, team2: 1)
         
+        
         fight()
      
     }
     
     
     /////////////////////////////////////////Methods to create Team with name ///////////////////////////////////////////
+    
     func createTeams(){
+        
+        
+        for _ in 0..<2 {
+            
+            teams.append(Team.createTeam())
+            
+        }
+        
+    }
+    
+    
+   /* func createTeams(){
       var teamN:String
         
         for _ in 0..<2 {
@@ -87,7 +102,9 @@ class Game {
         }while nameIsDifferent == false
         
         return nameTeam
-    }
+    }*/
+    
+    
     
     
     //Method to show each team warriors and their power Level
@@ -196,6 +213,62 @@ class Game {
         }
         
     }
+  
+    
+     /////////////////////////////////////////name Verification ///////////////////////////////////////////
+    // Methods to verify that no team have the same name
+    func teamNameVerify(name: String) -> Bool {
+        var new: Bool = true
+        
+        if name == ""{
+            
+                new = false
+        }
+        if teams.count > 0 {
+                for i in 0..<teams.count {
+                    var teamname:String
+                    teamname = teams[i].teamName
+                    if name == teamname {
+                        
+                        new = false
+                    }
+                    
+                    }
+        }
+        
+        return new
+        
+    }
+    
+    // Methods to verify that no warriors have the same name
+    func warriorsNameVerify(name: String) -> Bool {
+        var new: Bool = true
+        
+        if name == ""{
+            
+            new = false
+        }
+        if teams.count > 0 {
+            
+            for i in 0..<teams.count {
+                
+                for j in 0..<teams[i].warriorTeam.count {
+                    
+                    var warriorName:String
+                    warriorName = teams[i].warriorTeam[j].name
+                    
+                    if name == warriorName{
+                        
+                        new = false
+                    }
+                }
+            }
+        }
+        
+        return new
+        
+    }
+    
     
 }
     
