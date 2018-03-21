@@ -13,13 +13,9 @@ class Fighter: Warrior{
     var typeAttac: String
     
     init(name: String) {
-        
         self.typeAttac = "strike"
         super.init(name: name,power: 100,weapon: Sword())
-        
     }
-    
-    
 }
 
 

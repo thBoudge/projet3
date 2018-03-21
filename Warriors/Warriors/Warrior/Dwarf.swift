@@ -13,12 +13,8 @@ class Dwarf: Warrior{
     var typeAttac: String
     
     init(name: String) {
-        
         self.typeAttac = "strike"
         super.init(name: name,power: 80,weapon: Hammer())
-        
     }
-    
-    
 }
 

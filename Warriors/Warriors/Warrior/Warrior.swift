@@ -18,22 +18,13 @@ class Warrior {
         self.name = name
         self.power = power
         self.warriorWeapon = weapon
-        
     }
     
     func strike(warrior: Warrior) ->Void {
-        
         warrior.power -= warriorWeapon.powerWeapon
-        print("\(warrior.name)have been attacked with an \(warriorWeapon.nameWeapon)")
-        print("\(warrior.name) is now \(warrior.power)")
-        
     }
     
     func treatWarrior(warrior: Warrior) ->Void {}
-    
-    
-    
-    
 }
 
 

@@ -87,39 +87,31 @@ class Game {
         
         // Selection of Warrior from the other team who is going to be sticke or from our team who is going to be treat
         repeat{
-                    print("============== VS//TO =================")
-                    let warrior = teams[team1].warriorTeam[striker]
-                    //verifie si ton warrior est de type wyzard
-                    //other option if let wizard = warrior as? Wizard{}
-                    // Just check if warrior == Wizard()
-                    if warrior is Wizard {// changer en as?
-                        defender = teams[team1].warriorSelection()
-                        //Utiliser la func de la class
-                        teams[team1].warriorTeam[defender].power += teams[team1].warriorTeam[striker].warriorWeapon.powerWeapon
-                        
-                        teams[team1].showPowerLevelWarrior(defender: teams[team1].warriorTeam[defender], stricker: striker)
-                        
-                        
-                    }else{
-                        defender = teams[team2].warriorSelection()
-                        teams[team2].warriorTeam[defender].power -= teams[team1].warriorTeam[striker].warriorWeapon.powerWeapon
-                        //Show result and change power level to 0 if negative
-                        teams[team1].showPowerLevelWarrior(defender: teams[team2].warriorTeam[defender], stricker: striker)
-                        
-                    }
+                print("============== VS//TO =================")
+                let warrior = teams[team1].warriorTeam[striker]
+                //verifie si ton warrior est de type wyzard
+                //other option if let wizard = warrior as? Wizard{}
+                // Just check if warrior == Wizard()
+                if let wizard = warrior as? Wizard{
+                    defender = teams[team1].warriorSelection()
+                    wizard.treatWarrior(warrior: teams[team1].warriorTeam[defender])
+                    
+                }else{
+                    defender = teams[team2].warriorSelection()
+                    warrior.strike(warrior: teams[team2].warriorTeam[defender])
+                    //Show result and change power level to 0 if negative
+                    teams[team1].showPowerLevelWarrior(defender: teams[team2].warriorTeam[defender], stricker: striker)
+                }
         }while defender != 0 && defender != 1 && defender != 2
         attacNumber += 1
         
-        // powerLevelCount return false if Allwarriors team0 power level = 0
+        // powerLevelCount return false if Allwarriors team2 are died
         if !teams[team2].powerLevelCount() {
             powerLevelOver0 = false
         }
         return powerLevelOver0
     }
    
-
- 
-    
     //Methods to confirm if game have ending and who win
     func victoryOrNot(teamOne: Int, teamtwo: Int) {
         

@@ -13,10 +13,8 @@ class Wizard: Warrior{
     var typeAttac: String
     
     init(name: String) {
-        
         self.typeAttac = "treat"
         super.init(name: name,power: 70, weapon: Treat())
-        
     }
     
     override func strike(warrior: Warrior) {
@@ -24,13 +22,11 @@ class Wizard: Warrior{
     }
     
     override func treatWarrior(warrior: Warrior) ->Void {
-        
-       
-            warrior.power += warriorWeapon.powerWeapon
-            print("\(warrior.name)have been treat with an \(warriorWeapon.nameWeapon)")
-            print("\(warrior.name) is now \(warrior.power)")
-        
-    }
+        warrior.power += warriorWeapon.powerWeapon
+        print("\n\n-----------------------------------------------------------------------")
+        print("wariors \(warrior.name) have been treat power level is now: \(warrior.power)")
+        print("-----------------------------------------------------------------------\n\n")
+   }
     
 }
 

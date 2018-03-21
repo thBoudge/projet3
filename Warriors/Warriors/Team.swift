@@ -154,27 +154,18 @@ class Team {
     /////////////////////////////////////////Methods Show ///////////////////////////////////////////
     //Methods to show result of stricke on warrior or treatment
     func showPowerLevelWarrior(defender: Warrior, stricker: Int) -> Void{
-        
-        let warrior = self.warriorTeam[stricker]
-        if warrior is Wizard {
-            print("\n\n-----------------------------------------------------------------------")
-            print("wariors \(defender.name) have been treat power level is now: \(defender.power)")
-            print("-----------------------------------------------------------------------\n\n")
-            
-            
-        }else{
-            if defender.power <= 0 {// if power Level is under 0 change to 0
+        if defender.power <= 0 {// if power Level is under 0 change to 0
                 defender.power = 0
                 print("\n\n++++++++++++++++++++++++++++++++++++++++++++++++++++")
                 print("XXXXXX  wariors \(defender.name) IS DIED  XXXXXX")
                 print("++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n")
                 
-            }else{
+        }else{
                 print("\n\n-----------------------------------------------------------------------")
                 print("XXXXXX  wariors \(defender.name) have been attacked power level is now: \(defender.power)  XXXXXX")
                 print("-----------------------------------------------------------------------\n\n")
-            }
         }
+        
     }
     
 }
