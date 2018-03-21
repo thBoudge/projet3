@@ -151,32 +151,6 @@ class Team {
         return powerLevelTeam
     }
 
-    
-    /////////////////////////////////////////Treasure///////////////////////////////////////////
-    // Treasure open randomly : new weapon for Warriors and new treatment for Wizards
-    func treasure(striker : Int){
-        
-        let number:Int = Int(arc4random_uniform(5))
-        let warrior = self.warriorTeam[striker]
-        
-        if number == 4 {
-            if let wizard = warrior as? Wizard{
-                
-                wizard.warriorWeapon = Wine()
-                print("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=")
-                print("\(wizard.name) WINE is your new Weapon ")
-                print("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=")
-            }else{
-                warrior.warriorWeapon = Thunder()
-                print("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=")
-                print("\(warrior.name) THUNDER is your new Weapon")
-                print("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=")
-            }
-   
-        }
-        
-    }
-    
     /////////////////////////////////////////Methods Show ///////////////////////////////////////////
     //Methods to show result of stricke on warrior or treatment
     func showPowerLevelWarrior(defender: Warrior, stricker: Int) -> Void{

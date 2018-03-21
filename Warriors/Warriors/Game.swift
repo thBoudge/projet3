@@ -82,8 +82,8 @@ class Game {
         // Selection of Warrior from our team who is going to treat or sticke
         striker = teams[team1].warriorSelection()
         
-        // ajout changement wepon avec tresor
-        teams[team1].treasure(striker: striker) // mettre dans game********
+        // Add or not a weapon with a treasur (1 on 5 chance to new weapon)
+        treasure(warriorStriker: teams[team1].warriorTeam[striker])
         
         // Selection of Warrior from the other team who is going to be sticke or from our team who is going to be treat
         repeat{
@@ -134,7 +134,25 @@ class Game {
     }
   
     
-    
+    /////////////////////////////////////////Treasure///////////////////////////////////////////
+    // Treasure open randomly : new weapon for Warriors and new treatment for Wizards
+    func treasure(warriorStriker: Warrior){
+        let number:Int = Int(arc4random_uniform(5))
+        
+        if number == 4 {
+            if let wizard = warriorStriker as? Wizard{
+                wizard.warriorWeapon = Wine()
+                print("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=")
+                print("\(wizard.name) WINE is your new Weapon ")
+                print("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=")
+            }else{
+                warriorStriker.warriorWeapon = Thunder()
+                print("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=")
+                print("\(warriorStriker.name) THUNDER is your new Weapon")
+                print("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=")
+            }
+        }
+    }
     
 }
     
