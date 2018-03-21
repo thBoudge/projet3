@@ -24,7 +24,7 @@ class Wizard: Warrior{
     override func treatWarrior(warrior: Warrior) ->Void {
         warrior.power += warriorWeapon.powerWeapon
         print("\n\n-----------------------------------------------------------------------")
-        print("wariors \(warrior.name) have been treat power level is now: \(warrior.power)")
+        print("warrior \(warrior.name) have been treat power level is now: \(warrior.power)")
         print("-----------------------------------------------------------------------\n\n")
    }
     

@@ -22,6 +22,4 @@ class Input {
         guard let data = readLine() else { return "" }
         return data
     }
-
-
 }

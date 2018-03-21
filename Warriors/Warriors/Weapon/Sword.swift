@@ -12,11 +12,7 @@ class Sword: Weapon{
     
     
     init() {
-        
         super.init(nameWeapon: "Epee", powerWeapon: 10)
-        
     }
-    
-    
 }
 

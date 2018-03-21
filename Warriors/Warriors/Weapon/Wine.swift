@@ -14,8 +14,5 @@ class Wine: Weapon{
     init() {
         
         super.init(nameWeapon: "Wine", powerWeapon: 50)
-        
     }
-    
-    
 }

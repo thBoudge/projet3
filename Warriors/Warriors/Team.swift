@@ -13,12 +13,9 @@ class Team {
     let teamName: String
     var warriorTeam = [Warrior]() // tab of 3 Warriors
     
-    
-    init(teamName:String){
+     init(teamName:String){
         self.teamName = teamName
     }
-    
-    
     /////////////////////////////////////////Methods to create Team with name ///////////////////////////////////////////
    static func createTeam() ->Team {
             print("Player  please enter your Team name \n\n")
@@ -28,36 +25,12 @@ class Team {
             return newTeam
    }
     
-    
-    /* Methods that give a name to Team *****************************annuler et mettre dans class
-    static func createNameTeam() -> String {
-        
-        var nameTeam: String
-        var nameIsDifferent: Bool
-        
-        repeat{
-            
-            print("Name of Your Team :  ")
-            nameIsDifferent = true
-            
-            //
-            nameTeam = NameService.shared.uniqueTeamName()
-
-            
-        }while nameIsDifferent == false
-        
-        return nameTeam
-    }*/
-    
-    
-    
-     /////////////////////////////////////////Create Warriors///////////////////////////////////////////
+    /////////////////////////////////////////Create Warriors///////////////////////////////////////////
     
     //Methods to create 3 new warriors
     func createWarriors(){
         for i in 0..<3 {
             createWarrior(number: i)
-            
         }
     }
     
@@ -81,7 +54,7 @@ class Team {
             
         switch warrior {
             case 1:
-                warriorTeam.append(Fighter(name: NameService.shared.warriorName())) // changer et mettre func verif name warrioe
+                warriorTeam.append(Fighter(name: NameService.shared.warriorName()))
             
             case 2:
                 warriorTeam.append(Wizard(name: NameService.shared.warriorName()))
@@ -95,26 +68,25 @@ class Team {
             default:
                 break
         }
-      }
+    }
  
 
     //show all warrior alive from one team and return int of warrior selected
     func warriorSelection() ->Int {
         var warriorSelected: Int
+        
         print("\n<><><><><><><><><><><><><><><><><>")
         print("       \(teamName)")
-        // Selection of Warrior from our team who is going to treat or sticke
-       
+        // Selection of Warrior from our team who is going to treat or stricke
         repeat{
             print("<><><><><><><><><><><><><><><><><>")
             print("SELECT A WARRIOR:")
 
-            for i in 0 ..< self.warriorTeam.count {
+            for i in 0..<warriorTeam.count {
                 //if to show only warrior over 0 level
-                if  self.warriorTeam[i].power > 0{
-                    print("\(i+1)- \(warriorTeam[i].name) : power level : \(self.warriorTeam[i].power)")
-                    print("        weapon \(self.warriorTeam[i].warriorWeapon.nameWeapon) Weapon power \(self.warriorTeam[i].warriorWeapon.powerWeapon)")
-                    
+                if  warriorTeam[i].power > 0{
+                    print("\(i+1)- \(warriorTeam[i].name) : power level : \(warriorTeam[i].power)")
+                    print("        weapon \(warriorTeam[i].warriorWeapon.nameWeapon) Weapon power \(warriorTeam[i].warriorWeapon.powerWeapon)")
                 }
             }
 
@@ -122,47 +94,38 @@ class Team {
             print("your choise: ")
             warriorSelected = Input.inputInt()
             warriorSelected -= 1
-            
-            
-            
-        }while warriorSelected != 0 && warriorSelected != 1 && warriorSelected != 2 || self.warriorTeam[warriorSelected].power <= 0
-        
-        
+        }while warriorSelected != 0 && warriorSelected != 1 && warriorSelected != 2 || warriorTeam[warriorSelected].power <= 0 // in case warrior number (012) selected is already died
         return warriorSelected
     }
-    
     
     /////////////////////////////////////////Power Level Warriors check///////////////////////////////////////////
     // Check if power of team is == 0 and return a boolean
     func powerLevelCount() ->Bool {
-        
         var powerLevelTeam = true
-        
         var teamPower: Int = 0
         
-        for i in 0..<self.warriorTeam.count {
-            teamPower += self.warriorTeam[i].power
+        for i in 0..<warriorTeam.count {
+            teamPower += warriorTeam[i].power
         }
         
         if teamPower <= 0 {
             powerLevelTeam = false
         }
-        
         return powerLevelTeam
     }
 
     /////////////////////////////////////////Methods Show ///////////////////////////////////////////
     //Methods to show result of stricke on warrior or treatment
-    func showPowerLevelWarrior(defender: Warrior, stricker: Int) -> Void{
+    func showPowerLevelWarrior(defender: Warrior) -> Void{
         if defender.power <= 0 {// if power Level is under 0 change to 0
                 defender.power = 0
                 print("\n\n++++++++++++++++++++++++++++++++++++++++++++++++++++")
-                print("XXXXXX  wariors \(defender.name) IS DIED  XXXXXX")
+                print("XXXXXX  warrior \(defender.name) IS DIED  XXXXXX")
                 print("++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n")
                 
         }else{
                 print("\n\n-----------------------------------------------------------------------")
-                print("XXXXXX  wariors \(defender.name) have been attacked power level is now: \(defender.power)  XXXXXX")
+                print("XXXXXX  warrior \(defender.name) have been attacked power level is now: \(defender.power)  XXXXXX")
                 print("-----------------------------------------------------------------------\n\n")
         }
         

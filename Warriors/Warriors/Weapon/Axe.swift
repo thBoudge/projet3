@@ -14,10 +14,7 @@ class Axe: Weapon{
     init() {
         
         super.init(nameWeapon: "Hache", powerWeapon: 60)
-        
     }
-    
-    
 }
 
 

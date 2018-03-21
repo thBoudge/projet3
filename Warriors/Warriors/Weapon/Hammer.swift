@@ -14,8 +14,5 @@ class Hammer: Weapon{
     init() {
         
         super.init(nameWeapon: "Marteau", powerWeapon: 80)
-        
     }
-    
-    
 }

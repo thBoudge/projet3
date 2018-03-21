@@ -18,13 +18,6 @@ class Weapon {
         
         self.nameWeapon=nameWeapon
         self.powerWeapon=powerWeapon
-        
-        
     }
-    
-    
-    
-    
-    
     
 }

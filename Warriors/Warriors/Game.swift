@@ -99,7 +99,7 @@ class Game {
                     defender = teams[team2].warriorSelection()
                     warrior.strike(warrior: teams[team2].warriorTeam[defender])
                     //Show result and change power level to 0 if negative
-                    teams[team1].showPowerLevelWarrior(defender: teams[team2].warriorTeam[defender], stricker: striker)
+                    teams[team1].showPowerLevelWarrior(defender: teams[team2].warriorTeam[defender])
                 }
         }while defender != 0 && defender != 1 && defender != 2
         attacNumber += 1
@@ -122,11 +122,9 @@ class Game {
                 print(" Team \(team.teamName) win this fight")
             }
         }
-        
     }
   
-    
-    /////////////////////////////////////////Treasure///////////////////////////////////////////
+   /////////////////////////////////////////Treasure///////////////////////////////////////////
     // Treasure open randomly : new weapon for Warriors and new treatment for Wizards
     func treasure(warriorStriker: Warrior){
         let number:Int = Int(arc4random_uniform(5))

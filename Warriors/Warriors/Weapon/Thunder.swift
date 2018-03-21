@@ -14,8 +14,5 @@ class Thunder: Weapon{
     init() {
         
         super.init(nameWeapon: "Thunder", powerWeapon: 100)
-        
     }
-    
-    
 }
