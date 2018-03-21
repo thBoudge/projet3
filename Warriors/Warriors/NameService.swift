@@ -26,7 +26,7 @@ class NameService{
             teamName = Input.inputString()
             if teamNames.contains(teamName){
                 
-                print("this team name already exist")
+                print("No value or this team name already exist")
                 teamName = ""
             }
             teamNames.append(teamName)
@@ -35,7 +35,7 @@ class NameService{
         return teamName
     }
     
-    func warriorname () -> String{
+    func warriorName () -> String{
         var nameWarrior = ""
         
         repeat{
@@ -43,7 +43,7 @@ class NameService{
             nameWarrior = Input.inputString()
             if warriorNames.contains(nameWarrior){
                 
-                print("this warrior name already exist")
+                print("No value or this warrior name already exist")
                 nameWarrior = ""
             }
             warriorNames.append(nameWarrior)

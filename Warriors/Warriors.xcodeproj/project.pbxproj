@@ -16,6 +16,7 @@
 		B761DA14203F5E980019DB29 /* Treat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B761DA13203F5E980019DB29 /* Treat.swift */; };
 		B761DA16203F5ED70019DB29 /* Hammer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B761DA15203F5ED70019DB29 /* Hammer.swift */; };
 		B761DA18203F79060019DB29 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B761DA17203F79060019DB29 /* Weapon.swift */; };
+		B7677BC2205C17C600997FDE /* NameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7677BC1205C17C600997FDE /* NameService.swift */; };
 		B77D1E52205095E80086112C /* Wine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1E51205095E80086112C /* Wine.swift */; };
 		B77D1E54205098260086112C /* Thunder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1E53205098260086112C /* Thunder.swift */; };
 		B796E5FF203DED7A0063E26F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B796E5FE203DED7A0063E26F /* main.swift */; };
@@ -47,6 +48,7 @@
 		B761DA13203F5E980019DB29 /* Treat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Treat.swift; sourceTree = "<group>"; };
 		B761DA15203F5ED70019DB29 /* Hammer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hammer.swift; sourceTree = "<group>"; };
 		B761DA17203F79060019DB29 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
+		B7677BC1205C17C600997FDE /* NameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameService.swift; sourceTree = "<group>"; };
 		B77D1E51205095E80086112C /* Wine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wine.swift; sourceTree = "<group>"; };
 		B77D1E53205098260086112C /* Thunder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thunder.swift; sourceTree = "<group>"; };
 		B796E5FB203DED7A0063E26F /* Warriors */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Warriors; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,11 +116,12 @@
 			isa = PBXGroup;
 			children = (
 				B796E5FE203DED7A0063E26F /* main.swift */,
-				B796E605203DEED80063E26F /* Game.swift */,
 				B796E607203DF17A0063E26F /* Team.swift */,
+				B796E605203DEED80063E26F /* Game.swift */,
 				B7736BD02040732B00704E1C /* Warrior */,
 				B7736BCF20406DCF00704E1C /* Weapon */,
 				B7BDC0C0205ABD72003E1BD2 /* Input.swift */,
+				B7677BC1205C17C600997FDE /* NameService.swift */,
 			);
 			path = Warriors;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				B796E608203DF17A0063E26F /* Team.swift in Sources */,
 				B77D1E52205095E80086112C /* Wine.swift in Sources */,
 				B796E5FF203DED7A0063E26F /* main.swift in Sources */,
+				B7677BC2205C17C600997FDE /* NameService.swift in Sources */,
 				B761DA14203F5E980019DB29 /* Treat.swift in Sources */,
 				B796E60A203DF1C40063E26F /* Warrior.swift in Sources */,
 				B761DA0E203F5C6E0019DB29 /* Dwarf.swift in Sources */,

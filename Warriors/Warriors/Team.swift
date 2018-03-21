@@ -21,27 +21,15 @@ class Team {
     
     /////////////////////////////////////////Methods to create Team with name ///////////////////////////////////////////
    static func createTeam() ->Team {
-    
-        var name:String = ""
-        
-       
             print("Player  please enter your Team name \n\n")
-            
-            name = createNameTeam()
-          //  teamName.append(teamN)// add to tab of teamName
-            
-            let newTeam = Team(teamName: name)
+            // create name and verify if do not already exist
+            let newTeam = Team(teamName: NameService.shared.uniqueTeamName())
             newTeam.createWarriors()
-            
-            
             return newTeam
-            
-        
-        
-    }
+   }
     
     
-    // Methods that give a name to Team
+    /* Methods that give a name to Team *****************************annuler et mettre dans class
     static func createNameTeam() -> String {
         
         var nameTeam: String
@@ -51,23 +39,15 @@ class Team {
             
             print("Name of Your Team :  ")
             nameIsDifferent = true
-            nameTeam = Input.inputString()
             
-        
-            
-            nameIsDifferent = ab.teamNameVerify(name: nameTeam)
-          /*     //Loops to check if name is alreay in warriorTeam
-            for i in 0 ..< teamName.count{
-                
-             if nameTeam == teamName[i]{
-                    nameIsDifferent = false
-                }
-            }*/
+            //
+            nameTeam = NameService.shared.uniqueTeamName()
+
             
         }while nameIsDifferent == false
         
         return nameTeam
-    }
+    }*/
     
     
     
@@ -75,7 +55,6 @@ class Team {
     
     //Methods to create 3 new warriors
     func createWarriors(){
-        
         for i in 0..<3 {
             createWarrior(number: i)
             
@@ -84,10 +63,7 @@ class Team {
     
     // method to create one new warrior
     func createWarrior(number : Int){
-        
         var warrior: Int
-        
-        var nameWarrior: String
         
         repeat{
             print("")
@@ -101,56 +77,34 @@ class Team {
             print("Please enter your choice :")
             
             warrior = Input.inputInt()
-        
         }while warrior != 1 && warrior != 2 && warrior != 3 && warrior != 4
-        
-        nameWarrior = warriorname()
             
         switch warrior {
             case 1:
-                warriorTeam.append(Fighter(name: nameWarrior))
+                warriorTeam.append(Fighter(name: NameService.shared.warriorName())) // changer et mettre func verif name warrioe
             
             case 2:
-                warriorTeam.append(Wizard(name: nameWarrior))
+                warriorTeam.append(Wizard(name: NameService.shared.warriorName()))
             
             case 3:
-                warriorTeam.append(Colossus(name: nameWarrior))
+                warriorTeam.append(Colossus(name: NameService.shared.warriorName()))
             
             case 4:
-                warriorTeam.append(Dwarf(name: nameWarrior))
+                warriorTeam.append(Dwarf(name: NameService.shared.warriorName()))
             
             default:
                 break
-            
         }
-        
-    
-    }
-    
-
-    
-    
-    func warriorname () -> String{
-        
-        var nameWarrior: String
-        var newWarriorName: Bool = true
-        repeat{
-            print("Nom du Warrior :   ")
-            nameWarrior = Input.inputString()
-            newWarriorName = ab.warriorsNameVerify(name: nameWarrior)
-            
-        }while  newWarriorName == false
-        
-        return nameWarrior
-    }
-    
+      }
+ 
 
     //show all warrior alive from one team and return int of warrior selected
     func warriorSelection() ->Int {
         var warriorSelected: Int
         print("\n<><><><><><><><><><><><><><><><><>")
-        print("       \(self.teamName)")
+        print("       \(teamName)")
         // Selection of Warrior from our team who is going to treat or sticke
+       
         repeat{
             print("<><><><><><><><><><><><><><><><><>")
             print("SELECT A WARRIOR:")
@@ -158,7 +112,7 @@ class Team {
             for i in 0 ..< self.warriorTeam.count {
                 //if to show only warrior over 0 level
                 if  self.warriorTeam[i].power > 0{
-                    print("\(i+1)- \(self.warriorTeam[i].name) : power level : \(self.warriorTeam[i].power)")
+                    print("\(i+1)- \(warriorTeam[i].name) : power level : \(self.warriorTeam[i].power)")
                     print("        weapon \(self.warriorTeam[i].warriorWeapon.nameWeapon) Weapon power \(self.warriorTeam[i].warriorWeapon.powerWeapon)")
                     
                 }
