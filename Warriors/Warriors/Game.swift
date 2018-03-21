@@ -12,7 +12,7 @@ import Foundation
 class Game {
     
     var attacNumber: Int = 0 // count attack and depend on it choice which player is going to play
-    var teams = [Team]()
+    var teams = [Team]() // Table of team here 2 teams with 3 warriors with one weapon by warrior
   
     /////////////////////////////////////////Methods to start the Game ///////////////////////////////////////////
     func play(){
@@ -24,11 +24,12 @@ class Game {
         print("===============================")
         //Create 2 teams for each player
         createTeams()
-        //show team number
+        //show both teams numbers and warriors
         showTeam(team1: 0, team2: 1)
         
         fight()
         
+        // show winner of game
         victoryOrNot(teamOne: 0, teamtwo: 1)
         // show result
         print("\n Game was done on a total of \(attacNumber) attacks/treatment \n")
@@ -36,7 +37,6 @@ class Game {
     }
     
     /////////////////////////////////////////Methods to create Team with name ///////////////////////////////////////////
-    
     func createTeams(){
         for _ in 0..<2 {
             teams.append(Team.createTeam())
@@ -56,7 +56,6 @@ class Game {
     }
     
     /////////////////////////////////////////Methods to start fight ///////////////////////////////////////////
-    
     func fight() {
        var powerLevelOver0: Bool = true
        repeat{
@@ -67,7 +66,7 @@ class Game {
             
             // Team2 play when Bollean of attacNumber !=0 and totalpower of team2 > 0
             if (attacNumber % 2 != 0) && teams[1].powerLevelCount() == true{
-                powerLevelOver0 = attacTreat(team1: 1, team2: 0) // return true or false depend if team2 power is 0
+                powerLevelOver0 = attacTreat(team1: 1, team2: 0) // return true or false depend if all warriors of team2 are dead or not
             }
         }while powerLevelOver0 == true
     }
@@ -77,12 +76,12 @@ class Game {
         
         var striker: Int
         var defender: Int
-        var powerLevelOver0: Bool = true
+        var powerLevelOver0: Bool = true // false if all player of team 2 are died
        
         // Selection of Warrior from our team who is going to treat or sticke
         striker = teams[team1].warriorSelection()
         
-        // Add or not a weapon with a treasur (1 on 5 chance to new weapon)
+        // Add or not a weapon or treatment with a treasure (1 on 5 chance to new weapon)
         treasure(warriorStriker: teams[team1].warriorTeam[striker])
         
         // Selection of Warrior from the other team who is going to be sticke or from our team who is going to be treat
@@ -115,12 +114,13 @@ class Game {
     //Methods to confirm if game have ending and who win
     func victoryOrNot(teamOne: Int, teamtwo: Int) {
         
-        //reduire avec une func ou boucle***
-        if !teams[0].powerLevelCount() {
-            print(" Team \(teams[1].teamName) destroyed Team \(teams[0].teamName) ")
-        }
-        if !teams[1].powerLevelCount()  {
-            print(" Team \(teams[0].teamName) destroyed Team \(teams[1].teamName) ")
+        for team in teams {
+            
+            if !team.powerLevelCount() {
+                print(" Team \(team.teamName) have been destroyed")
+            }else{
+                print(" Team \(team.teamName) win this fight")
+            }
         }
         
     }
